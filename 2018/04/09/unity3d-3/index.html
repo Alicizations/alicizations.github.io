@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://alicizations.github.io/2018/04/09/unity3d-3/empty.png">
 <meta property="og:image" content="https://alicizations.github.io/2018/04/09/unity3d-3/camera1.png">
 <meta property="og:image" content="https://alicizations.github.io/2018/04/09/unity3d-3/camera2.png">
-<meta property="og:updated_time" content="2018-04-09T15:44:09.845Z">
+<meta property="og:updated_time" content="2018-04-09T15:54:39.176Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="unity3d-3">
 <meta name="twitter:description" content="unity3d 游戏场景与游戏对象游戏实践 动作分离版 牧师与恶魔">
@@ -307,7 +307,8 @@
       
 
       
-        <p>unity3d 游戏场景与游戏对象<br>游戏实践 动作分离版 牧师与恶魔<br><a id="more"></a></p>
+        <p>unity3d 游戏场景与游戏对象<br>游戏实践 动作分离版 牧师与恶魔</p>
+<a id="more"></a>
 <h2 id="构建自己的游戏场景"><a href="#构建自己的游戏场景" class="headerlink" title="构建自己的游戏场景"></a>构建自己的游戏场景</h2><p>从Asset Store上可以下载很多的别人做好的素材, 这里我选择了Fantasy Forest Set作为地形的素材, 以及Skybox Series Free作为天空的素材.<br>用上面这两个资源我们来学习构建一下unity中的游戏场景.<br><a href="https://assetstore.unity.com/packages/3d/environments/fantasy/fantasy-forest-set-free-70568" target="_blank" rel="noopener">Fantasy Forest Set</a><br><a href="https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633" target="_blank" rel="noopener">Skybox Series Free</a><br>(以上资源都是Free的)</p>
 <h3 id="构造地形-Terrain"><a href="#构造地形-Terrain" class="headerlink" title="构造地形(Terrain)"></a>构造地形(Terrain)</h3><p>首先是新建一个terrain<br><img src="/2018/04/09/unity3d-3/g.png" alt="ground"><br>当然现在只有空空的一片地, 不过要构建复杂的地形还需要从简单的做起<br>unity当然提供了一些方便而简单的工具给我们使用<br><img src="/2018/04/09/unity3d-3/gj.png" alt="gj"><br>然后我们可以造一些起伏, 或者是山<br>根据下载的素材, 可以添加到tree和grass中, 然后在地形中一刷, 就出来了<br>最终的效果<br><img src="/2018/04/09/unity3d-3/t.png" alt="tree"></p>
 <h3 id="构造天空-Skybox"><a href="#构造天空-Skybox" class="headerlink" title="构造天空(Skybox)"></a>构造天空(Skybox)</h3><p>skybox实际上就是给摄像机最后的背景贴图<br>所以只要将创建好的material装载到camera的skybox组件上就完成了(下文有属性介绍)</p>
