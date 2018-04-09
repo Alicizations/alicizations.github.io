@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="unity3d 游戏场景与游戏对象">
+<meta name="description" content="unity3d 游戏场景与游戏对象游戏实践 动作分离版 牧师与恶魔">
 <meta property="og:type" content="article">
 <meta property="og:title" content="unity3d-3">
 <meta property="og:url" content="https://alicizations.github.io/2018/04/09/unity3d-3/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="unity3d 游戏场景与游戏对象">
+<meta property="og:description" content="unity3d 游戏场景与游戏对象游戏实践 动作分离版 牧师与恶魔">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://alicizations.github.io/2018/04/09/unity3d-3/g.png">
 <meta property="og:image" content="https://alicizations.github.io/2018/04/09/unity3d-3/gj.png">
@@ -93,10 +93,10 @@
 <meta property="og:image" content="https://alicizations.github.io/2018/04/09/unity3d-3/empty.png">
 <meta property="og:image" content="https://alicizations.github.io/2018/04/09/unity3d-3/camera1.png">
 <meta property="og:image" content="https://alicizations.github.io/2018/04/09/unity3d-3/camera2.png">
-<meta property="og:updated_time" content="2018-04-09T15:39:35.139Z">
+<meta property="og:updated_time" content="2018-04-09T15:44:09.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="unity3d-3">
-<meta name="twitter:description" content="unity3d 游戏场景与游戏对象">
+<meta name="twitter:description" content="unity3d 游戏场景与游戏对象游戏实践 动作分离版 牧师与恶魔">
 <meta name="twitter:image" content="https://alicizations.github.io/2018/04/09/unity3d-3/g.png">
 
 
@@ -307,7 +307,7 @@
       
 
       
-        <p>unity3d 游戏场景与游戏对象<br><a id="more"></a></p>
+        <p>unity3d 游戏场景与游戏对象<br>游戏实践 动作分离版 牧师与恶魔<br><a id="more"></a></p>
 <h2 id="构建自己的游戏场景"><a href="#构建自己的游戏场景" class="headerlink" title="构建自己的游戏场景"></a>构建自己的游戏场景</h2><p>从Asset Store上可以下载很多的别人做好的素材, 这里我选择了Fantasy Forest Set作为地形的素材, 以及Skybox Series Free作为天空的素材.<br>用上面这两个资源我们来学习构建一下unity中的游戏场景.<br><a href="https://assetstore.unity.com/packages/3d/environments/fantasy/fantasy-forest-set-free-70568" target="_blank" rel="noopener">Fantasy Forest Set</a><br><a href="https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633" target="_blank" rel="noopener">Skybox Series Free</a><br>(以上资源都是Free的)</p>
 <h3 id="构造地形-Terrain"><a href="#构造地形-Terrain" class="headerlink" title="构造地形(Terrain)"></a>构造地形(Terrain)</h3><p>首先是新建一个terrain<br><img src="/2018/04/09/unity3d-3/g.png" alt="ground"><br>当然现在只有空空的一片地, 不过要构建复杂的地形还需要从简单的做起<br>unity当然提供了一些方便而简单的工具给我们使用<br><img src="/2018/04/09/unity3d-3/gj.png" alt="gj"><br>然后我们可以造一些起伏, 或者是山<br>根据下载的素材, 可以添加到tree和grass中, 然后在地形中一刷, 就出来了<br>最终的效果<br><img src="/2018/04/09/unity3d-3/t.png" alt="tree"></p>
 <h3 id="构造天空-Skybox"><a href="#构造天空-Skybox" class="headerlink" title="构造天空(Skybox)"></a>构造天空(Skybox)</h3><p>skybox实际上就是给摄像机最后的背景贴图<br>所以只要将创建好的material装载到camera的skybox组件上就完成了(下文有属性介绍)</p>
@@ -444,6 +444,7 @@
 </ul>
 </li>
 </ul>
+<h2 id="牧师与恶魔"><a href="#牧师与恶魔" class="headerlink" title="牧师与恶魔"></a>牧师与恶魔</h2><p><a href="https://github.com/Alicizations/unity3d_learning/tree/master/homeworrk-3" target="_blank" rel="noopener">仓库地址</a></p>
 
       
     </div>
@@ -590,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#构建自己的游戏场景"><span class="nav-number">1.</span> <span class="nav-text">构建自己的游戏场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造地形-Terrain"><span class="nav-number">1.1.</span> <span class="nav-text">构造地形(Terrain)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造天空-Skybox"><span class="nav-number">1.2.</span> <span class="nav-text">构造天空(Skybox)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于unity中各类游戏对象的使用"><span class="nav-number">2.</span> <span class="nav-text">关于unity中各类游戏对象的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Empty-空对象"><span class="nav-number">2.1.</span> <span class="nav-text">Empty(空对象)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Camera-摄像机"><span class="nav-number">2.2.</span> <span class="nav-text">Camera(摄像机)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Skybox-天空盒"><span class="nav-number">2.3.</span> <span class="nav-text">Skybox(天空盒)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Light-光源"><span class="nav-number">2.4.</span> <span class="nav-text">Light(光源)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3D-Object"><span class="nav-number">2.5.</span> <span class="nav-text">3D Object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Terrain-地形"><span class="nav-number">2.6.</span> <span class="nav-text">Terrain(地形)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Audio-音频"><span class="nav-number">2.7.</span> <span class="nav-text">Audio(音频)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#游戏资源库"><span class="nav-number">2.8.</span> <span class="nav-text">游戏资源库</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#构建自己的游戏场景"><span class="nav-number">1.</span> <span class="nav-text">构建自己的游戏场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造地形-Terrain"><span class="nav-number">1.1.</span> <span class="nav-text">构造地形(Terrain)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造天空-Skybox"><span class="nav-number">1.2.</span> <span class="nav-text">构造天空(Skybox)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于unity中各类游戏对象的使用"><span class="nav-number">2.</span> <span class="nav-text">关于unity中各类游戏对象的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Empty-空对象"><span class="nav-number">2.1.</span> <span class="nav-text">Empty(空对象)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Camera-摄像机"><span class="nav-number">2.2.</span> <span class="nav-text">Camera(摄像机)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Skybox-天空盒"><span class="nav-number">2.3.</span> <span class="nav-text">Skybox(天空盒)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Light-光源"><span class="nav-number">2.4.</span> <span class="nav-text">Light(光源)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3D-Object"><span class="nav-number">2.5.</span> <span class="nav-text">3D Object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Terrain-地形"><span class="nav-number">2.6.</span> <span class="nav-text">Terrain(地形)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Audio-音频"><span class="nav-number">2.7.</span> <span class="nav-text">Audio(音频)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#游戏资源库"><span class="nav-number">2.8.</span> <span class="nav-text">游戏资源库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#牧师与恶魔"><span class="nav-number">3.</span> <span class="nav-text">牧师与恶魔</span></a></li></ol></div>
             
 
           </div>
