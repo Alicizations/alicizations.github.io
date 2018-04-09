@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="unity3d 入门学习的基本概念">
+<meta property="og:type" content="article">
+<meta property="og:title" content="homework-1">
+<meta property="og:url" content="https://alicizations.github.io/2018/04/09/Unity3d-1/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="unity3d 入门学习的基本概念">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-04-09T12:09:41.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="homework-1">
+<meta name="twitter:description" content="unity3d 入门学习的基本概念">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://alicizations.github.io/2018/04/09/Unity3d-1/"/>
+
+
+
+
+
+  <title>homework-1 | Hello World</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello World</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2018/04/09/Unity3d-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ali">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">homework-1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-09T20:01:46+08:00">
+                2018-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>unity3d 入门学习的基本概念<br><a id="more"></a></p>
+<h2 id="游戏对象-GameObjects"><a href="#游戏对象-GameObjects" class="headerlink" title="游戏对象 (GameObjects)"></a>游戏对象 (GameObjects)</h2><p>游戏对象 (GameObjects) 是一种容器, 本身不做任何事情. 它们需要特殊属性 (special properties) 才能发挥游戏设计者想要实现的功能.</p>
+<h2 id="资源-Assets"><a href="#资源-Assets" class="headerlink" title="资源 (Assets)"></a>资源 (Assets)</h2><p>具有一定功能的部件, 比如贴图, 模型, 代码等等.</p>
+<h2 id="二者的联系"><a href="#二者的联系" class="headerlink" title="二者的联系"></a>二者的联系</h2><p>我们可以将资源应用到游戏对象上, 让游戏对象可以实现多种功能.</p>
+<h2 id="游戏案例"><a href="#游戏案例" class="headerlink" title="游戏案例"></a>游戏案例</h2><h3 id="roll-a-ball"><a href="#roll-a-ball" class="headerlink" title="roll a ball"></a>roll a ball</h3><h4 id="资源的目录组织结构"><a href="#资源的目录组织结构" class="headerlink" title="资源的目录组织结构"></a>资源的目录组织结构</h4><p>分为 素材(materials)、 预设(prefabs)、 脚本(script) 三个文件目录</p>
+<h4 id="游戏对象树的层次结构"><a href="#游戏对象树的层次结构" class="headerlink" title="游戏对象树的层次结构"></a>游戏对象树的层次结构</h4><p>光,地面,玩家,摄像机,墙壁,物品,Canvas(绘制文本),事件系统<br>可以归纳为 摄像机, 布景元素, 控制元素, 事件系统 这几大类.<br>其中若是有重复元素, 则存放在一个父对象之下</p>
+<h2 id="验证-MonoBehaviour-基本行为或事件触发"><a href="#验证-MonoBehaviour-基本行为或事件触发" class="headerlink" title="验证 MonoBehaviour 基本行为或事件触发"></a>验证 MonoBehaviour 基本行为或事件触发</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">//当一个脚本实例被载入时Awake被调用。</span><br><span class="line">void Awake() &#123;</span><br><span class="line">    Debug.Log(&quot;Awake!&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Use this for initialization</span><br><span class="line">void Start () &#123;</span><br><span class="line">    Debug.Log(&quot;Start!&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Update is called once per frame</span><br><span class="line">void Update () &#123;</span><br><span class="line">    Debug.Log(&quot;Update!&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//This function is called every fixed framerate frame, if the MonoBehaviour is enabled</span><br><span class="line">void FixedUpdate () &#123;</span><br><span class="line">    Debug.Log(&quot;FixedUpdate!&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//LateUpdate is called every frame, if the Behaviour is enabled</span><br><span class="line">void LateUpdate () &#123;</span><br><span class="line">    Debug.Log(&quot;LateUpdate!&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//渲染和处理GUI事件时调用</span><br><span class="line">void OnGUI () &#123;</span><br><span class="line">    Debug.Log(&quot;GUI!&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//当对象变为不可用或非激活状态时此函数被调用</span><br><span class="line">void OnDisable () &#123;</span><br><span class="line">    Debug.Log(&quot;OnDisable!&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//当对象变为可用或激活状态时此函数被调用</span><br><span class="line">void OnEnable () &#123;</span><br><span class="line">    Debug.Log(&quot;OnEnable!&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="了解对象"><a href="#了解对象" class="headerlink" title="了解对象"></a>了解对象</h2><h3 id="GameObject"><a href="#GameObject" class="headerlink" title="GameObject"></a>GameObject</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GameObjects are the fundamental objects in Unity that represent characters, props and scenery. </span><br><span class="line">They do not accomplish much in themselves but they act as containers for Components, which implement the real functionality.</span><br></pre></td></tr></table></figure>
+<p>GameObject 是Unity中的基本对象, 它可以表现为人物, 道具和风景. 他们自身并没有什么用处, 但能充当组件(Components)的容器, 实现一定的功能.</p>
+<h3 id="Transform"><a href="#Transform" class="headerlink" title="Transform"></a>Transform</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The Transform component determines the Position, Rotation, and Scale of each object in the scene. </span><br><span class="line">Every GameObject has a Transform.</span><br></pre></td></tr></table></figure>
+<p>Transform组件决定了每个对象的位置, 角度和缩放比例. 每个游戏对象(GameObject)都有一个 Transform组件.</p>
+<h3 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Base class for everything attached to GameObjects.</span><br></pre></td></tr></table></figure>
+<p>一切附加到游戏物体的基类.</p>
+<h3 id="table"><a href="#table" class="headerlink" title="table"></a>table</h3><h4 id="GameObject的属性"><a href="#GameObject的属性" class="headerlink" title="GameObject的属性"></a>GameObject的属性</h4><p>activeSelf 标识游戏物体是否是活动的. 使这个游戏物体活动/不活动<br>isStatic 只有在API指定一个游戏物体是静态的时候编辑<br>tag 游戏对象的标签<br>layer 游戏物体所在的层. 一个层的范围是在[0…32]之间<br>Prefabs 预设(未找到)</p>
+<h4 id="Transform的属性"><a href="#Transform的属性" class="headerlink" title="Transform的属性"></a>Transform的属性</h4><p>position 在世界空间坐标的位置<br>rotation 在世界空间坐标物体变换的旋转角度作为Quaternion储存<br>Scale 缩放比例(1为原始大小)</p>
+<h4 id="table的部件"><a href="#table的部件" class="headerlink" title="table的部件"></a>table的部件</h4><p>有 transform, Mesh Filter, Box Collider, Mesh Renderer和Default-Material</p>
+<h3 id="三者的关系-UML图"><a href="#三者的关系-UML图" class="headerlink" title="三者的关系(UML图)"></a>三者的关系(UML图)</h3><p>![image][../image/new.jpg]</p>
+<h2 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h2><h3 id="查找对象"><a href="#查找对象" class="headerlink" title="查找对象"></a>查找对象</h3><p>1.通过对象名称（Find方法）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var tar = GameObject.Find(&quot;/name&quot;);</span><br><span class="line">// 也可以是一个路径</span><br></pre></td></tr></table></figure></p>
+<p>2.通过标签获取单个游戏对象（FindWithTag方法）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var tar = GameObject.FindWithTag(&quot;tag&quot;);</span><br><span class="line">// 返回一个对象</span><br></pre></td></tr></table></figure></p>
+<p>3.通过标签获取多个游戏对象（FindGameObjectsWithTags方法）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var tar = GameObject.FindGameObjectsWithTag(&quot;tag&quot;);</span><br><span class="line">// 返回一个对象列表</span><br></pre></td></tr></table></figure></p>
+<p>4.通过类型获取单个游戏对象（FindObjectOfType方法）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var tar = GameObject.FindObjectOfType(&quot;type&quot;);</span><br><span class="line">// 返回一个对象</span><br></pre></td></tr></table></figure></p>
+<p>5.通过类型获取多个游戏对象（FindObjectsOfType方法）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var tar = GameObject.FindObjectsOfType(&quot;type&quot;);</span><br><span class="line">// 返回一个对象列表</span><br></pre></td></tr></table></figure></p>
+<h3 id="添加子对象"><a href="#添加子对象" class="headerlink" title="添加子对象"></a>添加子对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 先新建一个对象</span><br><span class="line">GameObject child = new GameObject ();</span><br><span class="line">// 然后将该对象的parent属性赋一个作为父对象的值</span><br><span class="line">child.transform.parent = p.transform;</span><br></pre></td></tr></table></figure>
+<h3 id="遍历对象树"><a href="#遍历对象树" class="headerlink" title="遍历对象树"></a>遍历对象树</h3><p>可以使用Component.GetComponentsInChildren方法.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 获取children中transform组件, 也就相当于获取到了children的对象</span><br><span class="line">Transform[] gp = GetComponentsInChildren&lt;Transform&gt;();</span><br><span class="line"></span><br><span class="line">foreach (Transform child in grandFa)  </span><br><span class="line">&#123;  </span><br><span class="line">    // 遍历</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &lt; transform.childCount; i++) &#123;  </span><br><span class="line">    // transform.GetChild(i).gameObject 这个便是子对象 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="清除所有子对象"><a href="#清除所有子对象" class="headerlink" title="清除所有子对象"></a>清除所有子对象</h3><p>根据上面的遍历, 结合destroy方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &lt; transform.childCount; i++) &#123;  </span><br><span class="line">    Destroy(transform.GetChild(i).gameObject); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="资源预设-Prefabs-与-对象克隆-clone"><a href="#资源预设-Prefabs-与-对象克隆-clone" class="headerlink" title="资源预设(Prefabs)与 对象克隆(clone)"></a>资源预设(Prefabs)与 对象克隆(clone)</h2><h3 id="预设的好处"><a href="#预设的好处" class="headerlink" title="预设的好处"></a>预设的好处</h3><p>使得(预设)游戏对象可以多处重复使用, 提高开发效率.<br>一处改变, 使用预设的全部都会改变.</p>
+<h3 id="预设和克隆的关系"><a href="#预设和克隆的关系" class="headerlink" title="预设和克隆的关系"></a>预设和克隆的关系</h3><p>预设是预先设计的游戏对象<br>克隆是复制存在的游戏对象<br>实际上, 多处使用预设, 其实例是预设的克隆.</p>
+<h3 id="预制资源实例化"><a href="#预制资源实例化" class="headerlink" title="预制资源实例化"></a>预制资源实例化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 代码中实例化预设</span><br><span class="line">Instantiate(prefab_name, position, Quaternion);</span><br></pre></td></tr></table></figure>
+<h2 id="组合模式-Composite-Pattern-一种设计模式"><a href="#组合模式-Composite-Pattern-一种设计模式" class="headerlink" title="组合模式(Composite Pattern / 一种设计模式)"></a>组合模式(Composite Pattern / 一种设计模式)</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>组合多个对象形成树形结构以表示具有部分-整体关系的层次结构。组合模式可以让客户端可以统一的对待单个对象和组合对象。<br>而这样设计的好处在于, 一个对根节点的方法, 对叶节点也适用, 增加代码复用性.</p>
+<h2 id="使用BroadcastMessage-方法向子对象发送消息"><a href="#使用BroadcastMessage-方法向子对象发送消息" class="headerlink" title="使用BroadcastMessage()方法向子对象发送消息"></a>使用BroadcastMessage()方法向子对象发送消息</h2><p>比如删除子对象, 可以用BroadcastMessage()方法.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 广播会从自身开始查找这个DestoryMe方法，查找完自身后会查找所有子物体  </span><br><span class="line">BroadcastMessage (&quot;DestoryMe&quot;);</span><br><span class="line">// 后面可以携带要调用函数的参数</span><br></pre></td></tr></table></figure></p>
+<p>要删除的子对象中:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 作为被广播通知的方法，由父物体通知执行  </span><br><span class="line">public void DestoryMe ()  </span><br><span class="line">&#123;  </span><br><span class="line">    Destroy (gameObject);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/09/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Ali</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#游戏对象-GameObjects"><span class="nav-number">1.</span> <span class="nav-text">游戏对象 (GameObjects)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源-Assets"><span class="nav-number">2.</span> <span class="nav-text">资源 (Assets)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二者的联系"><span class="nav-number">3.</span> <span class="nav-text">二者的联系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#游戏案例"><span class="nav-number">4.</span> <span class="nav-text">游戏案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#roll-a-ball"><span class="nav-number">4.1.</span> <span class="nav-text">roll a ball</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#资源的目录组织结构"><span class="nav-number">4.1.1.</span> <span class="nav-text">资源的目录组织结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#游戏对象树的层次结构"><span class="nav-number">4.1.2.</span> <span class="nav-text">游戏对象树的层次结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证-MonoBehaviour-基本行为或事件触发"><span class="nav-number">5.</span> <span class="nav-text">验证 MonoBehaviour 基本行为或事件触发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解对象"><span class="nav-number">6.</span> <span class="nav-text">了解对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GameObject"><span class="nav-number">6.1.</span> <span class="nav-text">GameObject</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transform"><span class="nav-number">6.2.</span> <span class="nav-text">Transform</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Component"><span class="nav-number">6.3.</span> <span class="nav-text">Component</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#table"><span class="nav-number">6.4.</span> <span class="nav-text">table</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GameObject的属性"><span class="nav-number">6.4.1.</span> <span class="nav-text">GameObject的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Transform的属性"><span class="nav-number">6.4.2.</span> <span class="nav-text">Transform的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#table的部件"><span class="nav-number">6.4.3.</span> <span class="nav-text">table的部件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三者的关系-UML图"><span class="nav-number">6.5.</span> <span class="nav-text">三者的关系(UML图)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技术"><span class="nav-number">7.</span> <span class="nav-text">技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查找对象"><span class="nav-number">7.1.</span> <span class="nav-text">查找对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加子对象"><span class="nav-number">7.2.</span> <span class="nav-text">添加子对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历对象树"><span class="nav-number">7.3.</span> <span class="nav-text">遍历对象树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除所有子对象"><span class="nav-number">7.4.</span> <span class="nav-text">清除所有子对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源预设-Prefabs-与-对象克隆-clone"><span class="nav-number">8.</span> <span class="nav-text">资源预设(Prefabs)与 对象克隆(clone)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#预设的好处"><span class="nav-number">8.1.</span> <span class="nav-text">预设的好处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预设和克隆的关系"><span class="nav-number">8.2.</span> <span class="nav-text">预设和克隆的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预制资源实例化"><span class="nav-number">8.3.</span> <span class="nav-text">预制资源实例化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合模式-Composite-Pattern-一种设计模式"><span class="nav-number">9.</span> <span class="nav-text">组合模式(Composite Pattern / 一种设计模式)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">9.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用BroadcastMessage-方法向子对象发送消息"><span class="nav-number">10.</span> <span class="nav-text">使用BroadcastMessage()方法向子对象发送消息</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ali</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
