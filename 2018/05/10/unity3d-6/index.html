@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="unity3d 巡逻兵小游戏应用事件订阅与发布模式.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="unity3d-6">
+<meta property="og:url" content="https://alicizations.github.io/2018/05/10/unity3d-6/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="unity3d 巡逻兵小游戏应用事件订阅与发布模式.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://alicizations.github.io/2018/05/10/unity3d-6/1.png">
+<meta property="og:image" content="https://alicizations.github.io/2018/05/10/unity3d-6/2.png">
+<meta property="og:image" content="https://alicizations.github.io/2018/05/10/unity3d-6/3.png">
+<meta property="og:updated_time" content="2018-05-11T03:02:29.673Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="unity3d-6">
+<meta name="twitter:description" content="unity3d 巡逻兵小游戏应用事件订阅与发布模式.">
+<meta name="twitter:image" content="https://alicizations.github.io/2018/05/10/unity3d-6/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://alicizations.github.io/2018/05/10/unity3d-6/"/>
+
+
+
+
+
+  <title>unity3d-6 | Hello World</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello World</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2018/05/10/unity3d-6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ali">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">unity3d-6</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-10T23:11:25+08:00">
+                2018-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>unity3d 巡逻兵小游戏<br>应用事件订阅与发布模式. </p>
+<a id="more"></a> 
+<h2 id="Patrol"><a href="#Patrol" class="headerlink" title="Patrol"></a>Patrol</h2><p><a href="https://github.com/Alicizations/unity3d_learning/tree/master/homework-6" target="_blank" rel="noopener">仓库地址</a></p>
+<p><a href="https://www.bilibili.com/video/av23259917/" target="_blank" rel="noopener">视频地址_p2</a></p>
+<hr>
+<p>关于这个游戏的制作已经有很多大神给了详细的实现和分析, 比如<a href="https://blog.csdn.net/c486c/article/details/80153548" target="_blank" rel="noopener">这个</a>, 我在这里就不现丑了, 主要分享我如何 <em>从零开始</em> 做好这个游戏.</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
+<li><ol>
+<li>将之前写好的比如 <em>userGUI, Director, FirstController, Singleton, Factory, CCActionManager, SSActionManager, SSAction</em> 这些文件复制到我们新项目的 <em>Scripts</em> 文件夹, 之前写的这些代码很多都可以重复使用, 就不必重新写了.    </li>
+</ol>
+</li>
+<li><ol start="2">
+<li>找到合适的模型资源、贴图等(也可以用简单的cube实现).   </li>
+</ol>
+</li>
+</ul>
+<h3 id="实现部分"><a href="#实现部分" class="headerlink" title="实现部分"></a>实现部分</h3><p>总体来说, 整个过程是可视化+传统Debug来完成的, 所以首先会忽略很多的细节问题, 然后一步一步加以完善.    </p>
+<h4 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h4><p><img src="/2018/05/10/unity3d-6/1.png" alt="GUI"><br>就是一些按钮和分数显示, 是之前做过的, 点击 <em>restart</em> 后会重新开始, 这里先忽略细节.   </p>
+<h4 id="加载资源"><a href="#加载资源" class="headerlink" title="加载资源"></a>加载资源</h4><p><img src="/2018/05/10/unity3d-6/2.png" alt="resources"><br>将墙壁、平面、玩家、士兵加载到地图, 观察效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">// @FirstController.cs</span><br><span class="line">// 加载资源 </span><br><span class="line">public void LoadResources()</span><br><span class="line">&#123;</span><br><span class="line">    LoadPlane();</span><br><span class="line">    LoadOutWall();</span><br><span class="line">    LoadWall();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Start () &#123;</span><br><span class="line">    // 因为要用到一些组件, 所以在Start加载</span><br><span class="line">    LoadPatrol(); </span><br><span class="line"></span><br><span class="line">    // 这两个可以先无视</span><br><span class="line">    Factory = Singleton&lt;PatrolFactory&gt;.Instance;</span><br><span class="line">    ActionManager = Singleton&lt;CCActionManager&gt;.Instance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void LoadPatrol()</span><br><span class="line">&#123;</span><br><span class="line">    int num = 1;</span><br><span class="line">    for (int i = 0; i &lt; 3; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int j = 0; j &lt; 3; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (i != 1 || j != 1)</span><br><span class="line">            &#123;</span><br><span class="line">                // 主要</span><br><span class="line">                var p = Factory.GetPatrol();</span><br><span class="line"></span><br><span class="line">                p.SetActive(true);</span><br><span class="line">                p.GetComponent&lt;Patrol&gt;().Catch = false;</span><br><span class="line">                p.GetComponent&lt;Patrol&gt;().Hit = false;</span><br><span class="line">                p.GetComponent&lt;Patrol&gt;().Lock = false;</span><br><span class="line"></span><br><span class="line">                // 主要</span><br><span class="line">                p.transform.position = new Vector3(-10 + 10 * i, 0, -10 + 10 * j);</span><br><span class="line">                Patrols.Enqueue(p);</span><br><span class="line"></span><br><span class="line">                p.GetComponent&lt;Patrol&gt;().Num = num;</span><br><span class="line">                GameEventManager.LockChange += p.GetComponent&lt;Patrol&gt;().LockPlayer;</span><br><span class="line">                GameEventManager.UnlockChange += p.GetComponent&lt;Patrol&gt;().LosePlayer;</span><br><span class="line">                ActionManager.PatrolGo(p);</span><br><span class="line">            &#125;</span><br><span class="line">            num++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void LoadWall()</span><br><span class="line">&#123;</span><br><span class="line">    for (int i = 0; i &lt; 2; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int j = 0; j &lt; 3; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            GameObject.Instantiate&lt;GameObject&gt;(Resources.Load&lt;GameObject&gt;(&quot;WallY&quot;), new Vector3(-5 + 10 * i, 1, -13 + 10 * j), Quaternion.identity);</span><br><span class="line">            GameObject.Instantiate&lt;GameObject&gt;(Resources.Load&lt;GameObject&gt;(&quot;WallY&quot;), new Vector3(-5 + 10 * i, 1, -7 + 10 * j), Quaternion.identity);</span><br><span class="line">            GameObject.Instantiate&lt;GameObject&gt;(Resources.Load&lt;GameObject&gt;(&quot;WallX&quot;), new Vector3(-13 + 10 * j, 1, -5 + 10 * i), Quaternion.identity);</span><br><span class="line">            GameObject.Instantiate&lt;GameObject&gt;(Resources.Load&lt;GameObject&gt;(&quot;WallX&quot;), new Vector3(-7 + 10 * j, 1, -5 + 10 * i), Quaternion.identity);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void LoadOutWall()</span><br><span class="line">&#123;</span><br><span class="line">    for (int i = -16; i &lt; 18; i=i+32)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int j = 0; j &lt; 6; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            GameObject.Instantiate&lt;GameObject&gt;(Resources.Load&lt;GameObject&gt;(&quot;OutWallY&quot;), new Vector3(i, 1, -12.5f + j * 5), Quaternion.identity);</span><br><span class="line">            GameObject.Instantiate&lt;GameObject&gt;(Resources.Load&lt;GameObject&gt;(&quot;OutWallX&quot;), new Vector3(-12.5f + j * 5, 1, i), Quaternion.identity);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void LoadPlane()</span><br><span class="line">&#123;</span><br><span class="line">    GameObject t = null;</span><br><span class="line">    int Num = 1;</span><br><span class="line">    for (int i = -10; i &lt; 11; i=i+10)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int j = -10; j &lt; 11; j=j+10)</span><br><span class="line">        &#123;</span><br><span class="line">            t = GameObject.Instantiate&lt;GameObject&gt;(Resources.Load&lt;GameObject&gt;(&quot;Plane&quot;), new Vector3(i, 0, j), Quaternion.identity);</span><br><span class="line">            t.GetComponent&lt;AreaController&gt;().Sign = Num;</span><br><span class="line">            Num++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这一步通常需要你调整资源到合适的位置, 因为已经可以运行看到效果了, 所以预计你的调整会很快完成. 我这里没有写 <em>加载玩家</em> 的代码, 请自己实现.   </p>
+<h4 id="玩家移动"><a href="#玩家移动" class="headerlink" title="玩家移动"></a>玩家移动</h4><p>利用Unity的Input, 实现可控玩家的移动操作部分. 在这里我实现了行走、跳跃.<br>完成后请运行测试.  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">@PlayerMove.cs  </span><br><span class="line">void Update()</span><br><span class="line">&#123;</span><br><span class="line">    // 游戏结束时不能控制</span><br><span class="line">    if (!CanMove)</span><br><span class="line">    &#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 这里是动画设置</span><br><span class="line">    m_animator.SetBool(&quot;Grounded&quot;, !Jumping);</span><br><span class="line"></span><br><span class="line">    // 移动实现</span><br><span class="line">    DirectUpdate();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void DirectUpdate()</span><br><span class="line">&#123;</span><br><span class="line">    // 移动速度</span><br><span class="line">    float v = Input.GetAxis(&quot;Vertical&quot;);</span><br><span class="line">    float h = Input.GetAxis(&quot;Horizontal&quot;);</span><br><span class="line"></span><br><span class="line">    Transform camera = Camera.main.transform;</span><br><span class="line">    </span><br><span class="line">    // 逐渐变化</span><br><span class="line">    m_currentV = Mathf.Lerp(m_currentV, v, Time.deltaTime * 10);</span><br><span class="line">    m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * 10);</span><br><span class="line"></span><br><span class="line">    Vector3 direction = camera.forward * m_currentV + camera.right * m_currentH;</span><br><span class="line"></span><br><span class="line">    float directionLength = direction.magnitude;</span><br><span class="line">    direction.y = 0;</span><br><span class="line">    direction = direction.normalized * directionLength;</span><br><span class="line">    </span><br><span class="line">    //转向</span><br><span class="line">    if (direction != Vector3.zero)</span><br><span class="line">    &#123;</span><br><span class="line">        m_currentDirection = Vector3.Slerp(m_currentDirection, direction, Time.deltaTime * 30);</span><br><span class="line"></span><br><span class="line">        transform.rotation = Quaternion.LookRotation(m_currentDirection);</span><br><span class="line">        transform.position += m_currentDirection * Speed * Time.deltaTime;</span><br><span class="line"></span><br><span class="line">        m_animator.SetFloat(&quot;MoveSpeed&quot;, direction.magnitude);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    JumpingAndLanding();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 跳跃部分</span><br><span class="line">private void JumpingAndLanding()</span><br><span class="line">&#123;</span><br><span class="line">    // 重置跳跃状态</span><br><span class="line">    if (Jumping)</span><br><span class="line">    &#123;</span><br><span class="line">        Jumping = this.transform.position.y == 0 ? false : true;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        Jumping = this.transform.position.y &gt; 3 ? true : false;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 检测到空格就给予Player向上的力</span><br><span class="line">    if (!Jumping &amp;&amp; Input.GetKeyDown(KeyCode.Space))</span><br><span class="line">    &#123;</span><br><span class="line">        m_rigidBody.AddForce(Vector3.up * m_jumpForce, ForceMode.Impulse);</span><br><span class="line">        Jumping = true;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 动画</span><br><span class="line">    if (!Jumping)</span><br><span class="line">    &#123;</span><br><span class="line">        m_animator.SetTrigger(&quot;Land&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        m_animator.SetTrigger(&quot;Jump&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="士兵移动"><a href="#士兵移动" class="headerlink" title="士兵移动"></a>士兵移动</h4><p>在这里需要暂停一下, 要考虑清楚你想让士兵怎么移动, 矩形? 五边形? 六边形?……<br>如果是有规律的, 一般可以新建一个 <em>动作类</em> 继承 <code>SSAction</code>, 然后用<code>CCActionManager</code>来管理.<br>在这里, 我把巡逻的矩形区域分成了 <em>上下左右</em> 四个部分(随机取点), 以逆时针的方向巡逻.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">@CCActionManager.cs  </span><br><span class="line">public class PatrolAction : SSAction</span><br><span class="line">&#123;</span><br><span class="line">    public Vector3 OriPos; // 初始位置</span><br><span class="line">    public Vector3 target; // 目标位置</span><br><span class="line">    public int WalkWay;</span><br><span class="line">    // 0 为上, 1 为左, 2 为下, 3 为右 (小区域)</span><br><span class="line">    public float speed;    // 速度</span><br><span class="line"></span><br><span class="line">    // 巡逻相关</span><br><span class="line">    public Patrol PatrolData;</span><br><span class="line">    </span><br><span class="line">    // 创建一个 PatrolAction 并返回, 便于 CCActionManager 管理</span><br><span class="line">    public static PatrolAction GetPatrolAction(int way, Vector3 o)</span><br><span class="line">    &#123;</span><br><span class="line">        PatrolAction action = ScriptableObject.CreateInstance&lt;PatrolAction&gt;();</span><br><span class="line">        action.OriPos = o;</span><br><span class="line">        action.WalkWay = way;</span><br><span class="line">        action.SetTarget(way);</span><br><span class="line">        return action;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public override void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        PatrolData = gameobject.GetComponent&lt;Patrol&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 巡逻移动看 主要 部分</span><br><span class="line">    public override void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        if (PatrolData.Catch == true)</span><br><span class="line">        &#123;</span><br><span class="line">            PatrolData.Attack();</span><br><span class="line">            this.destroy = true;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        if (PatrolData.Hit == false)</span><br><span class="line">        &#123;</span><br><span class="line">            PatrolData.Walk();</span><br><span class="line">            speed = 2f;</span><br><span class="line">            if (PatrolData.Lock == true)</span><br><span class="line">            &#123;</span><br><span class="line">                this.target = ((FirstController)(Director.GetInstance().CurrentScenceController)).Player.transform.position;</span><br><span class="line">                this.target.y = 0;</span><br><span class="line">                PatrolData.Run();</span><br><span class="line">                speed = 4f;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            // 主要</span><br><span class="line">            this.gameobject.transform.LookAt(this.target);</span><br><span class="line">            this.gameobject.transform.position = Vector3.MoveTowards(this.gameobject.transform.position, this.target, speed * Time.deltaTime);</span><br><span class="line">            if (this.gameobject.transform.position == this.target)</span><br><span class="line">            &#123;</span><br><span class="line">                this.destroy = true;</span><br><span class="line"></span><br><span class="line">                // 当走到一个巡逻位置, 调用 CCActionManager 来进行下一次的巡逻</span><br><span class="line">                this.callback.SSActionEvent(this);</span><br><span class="line">            &#125;</span><br><span class="line">            // end of 主要</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            this.destroy = true;</span><br><span class="line">            this.callback.SSActionEvent(this);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 设置目标位置 根据方向</span><br><span class="line">    public void SetTarget(int way)</span><br><span class="line">    &#123;</span><br><span class="line">        float z = 0;</span><br><span class="line">        float x = 0;</span><br><span class="line">        if (way == 0)</span><br><span class="line">        &#123;</span><br><span class="line">            z = Random.Range(0, 4.5f);</span><br><span class="line">            x = Random.Range(-z, z);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        else if (way == 1)</span><br><span class="line">        &#123;</span><br><span class="line">            x = Random.Range(0, 4.5f) * -1;</span><br><span class="line">            z = Random.Range(x, -x);</span><br><span class="line">        &#125;</span><br><span class="line">        else if (way == 2)</span><br><span class="line">        &#123;</span><br><span class="line">            z = Random.Range(0, 4.5f) * -1;</span><br><span class="line">            x = Random.Range(z, -z);</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            x = Random.Range(0, 4.5f);</span><br><span class="line">            z = Random.Range(-x, x);</span><br><span class="line">        &#125;</span><br><span class="line">        this.target = new Vector3(x, 0, z) + this.OriPos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// @ Class CCActionManager </span><br><span class="line">// 完成一次 action 后如何处理</span><br><span class="line">// 因为只管理巡逻, 所以进行下一次巡逻</span><br><span class="line">public void SSActionEvent(SSAction source, SSActionEventType events = SSActionEventType.Competeted,</span><br><span class="line">        int intParam = 0, string strParam = null, Object objectParam = null)</span><br><span class="line">&#123;</span><br><span class="line">    PatrolAction p = source as PatrolAction;</span><br><span class="line">    p.PatrolData.Hit = false;</span><br><span class="line">    PatrolAction ac = PatrolAction.GetPatrolAction((p.WalkWay+1)%4, p.OriPos);</span><br><span class="line">    RunAction(p.gameobject, ac, this);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 加载资源时调用, 用于开始巡逻</span><br><span class="line">public void PatrolGo(GameObject Patrol)</span><br><span class="line">&#123;</span><br><span class="line">    int w = Random.Range(0, 4);</span><br><span class="line">    PatrolAction ac = PatrolAction.GetPatrolAction(w, Patrol.transform.position);</span><br><span class="line">    // 开始巡逻</span><br><span class="line">    RunAction(Patrol, ac, this);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="士兵抓捕玩家"><a href="#士兵抓捕玩家" class="headerlink" title="士兵抓捕玩家"></a>士兵抓捕玩家</h4><pre><code>巡逻兵在设定范围内感知到玩家，会自动追击玩家；   
+</code></pre><p>一种方法是巡逻兵记录它的设定范围, 然后每帧判断玩家是否进入, 然后再修改 <em>PatrolAction</em>, 不过这样类与类之间的关系就会变得十分复杂了, 不便于维护(实际上如果出了什么bug, 修复起来也是十分难受的).   </p>
+<p>我的方法是将逻辑分层成 <em>玩家-&gt;区域-&gt;士兵</em>, 玩家在各个区域移动(有一个记录玩家区域的标识), 士兵在设定区域巡逻(它们拥有相同的标识). 当玩家走进一个新区域时, 会触发一个事件, 让巡逻兵检查玩家是否闯进了自己巡逻的区域(根据标识), 以此修改自己状态(巡逻|抓捕).   </p>
+<p>这样分工后逻辑清晰, 每个类也不至于很臃肿. 那么下面就一步一步实现这个过程.   </p>
+<h5 id="区域检测玩家"><a href="#区域检测玩家" class="headerlink" title="区域检测玩家"></a>区域检测玩家</h5><p><img src="/2018/05/10/unity3d-6/3.png" alt="check"></p>
+<p>绿色线包围着的就是一个作为触发器的碰撞体, 当玩家进入时可以触发<code>OnTriggerEnter</code>, 在里面可以根据<code>name</code>或者<code>tag</code>判断是否为玩家.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@AreaController.cs </span><br><span class="line">public void OnTriggerEnter(Collider collider)</span><br><span class="line">&#123;</span><br><span class="line">    //Debug.Log(&quot;player in&quot;);</span><br><span class="line">    if (collider.gameObject.tag == &quot;Player&quot;)</span><br><span class="line">    &#123;</span><br><span class="line">        // 更改玩家区域标记</span><br><span class="line">        sceneController.InArea = Sign;</span><br><span class="line"></span><br><span class="line">        // 触发脱离区域和进入区域的事件</span><br><span class="line">        Singleton&lt;GameEventManager&gt;.Instance.PlayerEscape();</span><br><span class="line">        Singleton&lt;GameEventManager&gt;.Instance.PlayerIn();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="订阅与发布模式"><a href="#订阅与发布模式" class="headerlink" title="订阅与发布模式"></a>订阅与发布模式</h5><p>上面的代码可以看到触发了事件, 再根据更之前的讨论, 是巡逻兵订阅了这个事件, 事件触发, 巡逻兵执行对应函数检查玩家是否在自己的区域中.   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@GameEventManager.cs </span><br><span class="line">//玩家进入范围</span><br><span class="line">public void PlayerIn()</span><br><span class="line">&#123;</span><br><span class="line">    if (LockChange != null)</span><br><span class="line">    &#123;</span><br><span class="line">        LockChange();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//玩家逃脱</span><br><span class="line">public void PlayerEscape()</span><br><span class="line">&#123;</span><br><span class="line">    if (ScoreChange != null)</span><br><span class="line">    &#123;</span><br><span class="line">        ScoreChange();</span><br><span class="line">    &#125;</span><br><span class="line">    if (UnlockChange != null)</span><br><span class="line">    &#123;</span><br><span class="line">        UnlockChange();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@FirstController.cs </span><br><span class="line">var p = Factory.GetPatrol();</span><br><span class="line">// 订阅事件</span><br><span class="line">GameEventManager.LockChange += p.GetComponent&lt;Patrol&gt;().LockPlayer;</span><br><span class="line">GameEventManager.UnlockChange += p.GetComponent&lt;Patrol&gt;().LosePlayer;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">@Patrol.cs </span><br><span class="line">//发现玩家</span><br><span class="line">public void LockPlayer()</span><br><span class="line">&#123;</span><br><span class="line">    //Debug.Log(&quot;in&quot;);</span><br><span class="line">    // 检测玩家的区域标识, 相同则转为抓捕模式</span><br><span class="line">    if (((FirstController)Director.GetInstance().CurrentScenceController).InArea == this.Num)</span><br><span class="line">    &#123;</span><br><span class="line">        //Debug.Log(&quot;find&quot;);</span><br><span class="line">        this.Lock = true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//玩家逃脱</span><br><span class="line">public void LosePlayer()</span><br><span class="line">&#123;</span><br><span class="line">    this.Lock = false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="抓捕行动-Action"><a href="#抓捕行动-Action" class="headerlink" title="抓捕行动(Action)"></a>抓捕行动(Action)</h5><p>上面已经实现到状态的切换了(巡逻|抓捕), 然后就是动作的切换. 在 PatrolAction 中判断状态来进行相应的动作就OK.   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@CCActionManager.cs </span><br><span class="line">@PatrolAction.Update()</span><br><span class="line">if (PatrolData.Lock == true)</span><br><span class="line">&#123;</span><br><span class="line">    // 更改目标位置为玩家位置</span><br><span class="line">    this.target = ((FirstController)(Director.GetInstance().CurrentScenceController)).Player.transform.position;</span><br><span class="line">    this.target.y = 0;</span><br><span class="line"></span><br><span class="line">    // 更改为跑步动画并加速</span><br><span class="line">    PatrolData.Run();</span><br><span class="line">    speed = 4f;</span><br><span class="line">&#125;</span><br><span class="line">// 当Lock为false时, 目标位置时巡逻位置</span><br></pre></td></tr></table></figure>
+<p>到这里, 这一部分也告一段落了, 接下来就只是一些细节的问题了.    </p>
+<h4 id="游戏结束"><a href="#游戏结束" class="headerlink" title="游戏结束"></a>游戏结束</h4><p>当巡逻兵与玩家发生碰撞时, 游戏结束. 这可以类似玩家进入区域的判定方法, 不过这里用的是碰撞事件<code>OnCollisionEnter</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@Patrol.cs </span><br><span class="line">public void OnCollisionEnter(Collision collision)</span><br><span class="line">&#123;</span><br><span class="line">    // 判断是否撞到玩家</span><br><span class="line">    if (collision.gameObject.tag == &quot;Player&quot;)</span><br><span class="line">    &#123;</span><br><span class="line">        Catch = true;</span><br><span class="line">        //Debug.Log(&quot;catch&quot;);</span><br><span class="line">        Singleton&lt;GameEventManager&gt;.Instance.PlayerGameover();</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        // 撞到别的东西的标志, 这会更改巡逻兵的Action</span><br><span class="line">        Hit = true;</span><br><span class="line">    &#125;</span><br><span class="line">    //Debug.Log(&quot;111&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/23/unity3d-5/" rel="next" title="unity3d-5">
+                <i class="fa fa-chevron-left"></i> unity3d-5
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Ali</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Patrol"><span class="nav-number">1.</span> <span class="nav-text">Patrol</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">1.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现部分"><span class="nav-number">1.2.</span> <span class="nav-text">实现部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GUI"><span class="nav-number">1.2.1.</span> <span class="nav-text">GUI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载资源"><span class="nav-number">1.2.2.</span> <span class="nav-text">加载资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#玩家移动"><span class="nav-number">1.2.3.</span> <span class="nav-text">玩家移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#士兵移动"><span class="nav-number">1.2.4.</span> <span class="nav-text">士兵移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#士兵抓捕玩家"><span class="nav-number">1.2.5.</span> <span class="nav-text">士兵抓捕玩家</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#区域检测玩家"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">区域检测玩家</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#订阅与发布模式"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">订阅与发布模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#抓捕行动-Action"><span class="nav-number">1.2.5.3.</span> <span class="nav-text">抓捕行动(Action)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#游戏结束"><span class="nav-number">1.2.6.</span> <span class="nav-text">游戏结束</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ali</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
