@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="关于unity3d的一些运动">
+<meta name="description" content="Array;Divide and Conquer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="unity3d-2">
-<meta property="og:url" content="https://alicizations.github.io/2018/04/09/unity3d-2/index.html">
+<meta property="og:title" content="Leetcode:169.Majority Element">
+<meta property="og:url" content="https://alicizations.github.io/2018/09/11/Leetcode-169-Majority-Element/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="关于unity3d的一些运动">
+<meta property="og:description" content="Array;Divide and Conquer">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-09T12:20:53.932Z">
+<meta property="og:image" content="https://alicizations.github.io/2018/09/11/Leetcode-169-Majority-Element/1.png">
+<meta property="og:updated_time" content="2018-09-11T11:52:26.414Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="unity3d-2">
-<meta name="twitter:description" content="关于unity3d的一些运动">
+<meta name="twitter:title" content="Leetcode:169.Majority Element">
+<meta name="twitter:description" content="Array;Divide and Conquer">
+<meta name="twitter:image" content="https://alicizations.github.io/2018/09/11/Leetcode-169-Majority-Element/1.png">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://alicizations.github.io/2018/04/09/unity3d-2/"/>
+  <link rel="canonical" href="https://alicizations.github.io/2018/09/11/Leetcode-169-Majority-Element/"/>
 
 
 
 
 
-  <title>unity3d-2 | Hello World</title>
+  <title>Leetcode:169.Majority Element | Hello World</title>
   
 
 
@@ -232,7 +234,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2018/04/09/unity3d-2/">
+    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2018/09/11/Leetcode-169-Majority-Element/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ali">
@@ -249,7 +251,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">unity3d-2</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode:169.Majority Element</h1>
         
 
         <div class="post-meta">
@@ -261,8 +263,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-09T20:19:51+08:00">
-                2018-04-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-11T19:21:58+08:00">
+                2018-09-11
               </time>
             
 
@@ -299,20 +301,19 @@
       
 
       
-        <p>关于unity3d的一些运动<br><a id="more"></a></p>
-<h3 id="物体对象运动的本质"><a href="#物体对象运动的本质" class="headerlink" title="物体对象运动的本质"></a>物体对象运动的本质</h3><p>是物体对象位置的改变</p>
-<h3 id="物体的抛物线运动"><a href="#物体的抛物线运动" class="headerlink" title="物体的抛物线运动"></a>物体的抛物线运动</h3><ul>
-<li><p>1.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 通过直接改变position来实现</span><br><span class="line">public float v0 = 10.0f;</span><br><span class="line">public float a = 2.0f;</span><br><span class="line">private float t = 0f;</span><br><span class="line"></span><br><span class="line">void Update () &#123;</span><br><span class="line">    t += (float)Time.deltaTime;</span><br><span class="line">    this.transform.position = new Vector3((float)(v0 * t - 0.5 * a * t * t), 0, v0*t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 通过translate函数来实现</span><br><span class="line">public float v0 = 5.0f;</span><br><span class="line"></span><br><span class="line">void Update () &#123;</span><br><span class="line">    v0 += 0.5f;</span><br><span class="line">    this.transform.Translate(v0 * Vector3.up * Time.deltaTime);</span><br><span class="line">    transform.Translate(Vector3.right * Time.deltaTime); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 通过设置游戏对象重力和初速度实现</span><br><span class="line">void Start () &#123;</span><br><span class="line">    this.GetComponent&lt;Rigidbody&gt;().velocity = new Vector3(5, 10, 0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+        <center>Array;Divide and Conquer</center>
+
+<a id="more"></a> 
+<h3 id="169-Majority-Element"><a href="#169-Majority-Element" class="headerlink" title="169.Majority Element"></a><a href="https://leetcode.com/problems/majority-element/description/" target="_blank" rel="noopener">169.Majority Element</a></h3><h4 id="题目理解"><a href="#题目理解" class="headerlink" title="题目理解:"></a>题目理解:</h4><p>找出数组中出现次数大于 <code>n/2</code> 的数字    </p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h4><p>整体基于分治法的思想, 将数组分为三部分.</p>
+<ul>
+<li>1.随机选择一个数 <code>v</code></li>
+<li>2.将数组分为 <code>&lt;v</code>, <code>=v</code>, <code>&gt;v</code> 三部分</li>
+<li>3.若 <code>sizeof(=v) &gt; n/2</code>, 既满足要求, 则找到; 否则, 从剩下两个小数组中选取较大的一个重复步骤<code>1 2 3</code></li>
 </ul>
-<h3 id="太阳系仿真"><a href="#太阳系仿真" class="headerlink" title="太阳系仿真"></a>太阳系仿真</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">// 定义游戏对象</span><br><span class="line">public GameObject Sun;</span><br><span class="line">public GameObject Mercury;</span><br><span class="line">public GameObject Venus;</span><br><span class="line">public GameObject Earth;</span><br><span class="line">public GameObject Moon;</span><br><span class="line">public GameObject Mars;</span><br><span class="line">public GameObject Jupiter;</span><br><span class="line">public GameObject Saturn;</span><br><span class="line">public GameObject Uranus;</span><br><span class="line">public GameObject Neptune;</span><br><span class="line">public GameObject Pluto;</span><br><span class="line">public float speed = 5f;</span><br><span class="line"></span><br><span class="line">void Update () &#123;</span><br><span class="line">    // 自转</span><br><span class="line">    Sun.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Mercury.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Venus.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Earth.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Mars.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Jupiter.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Saturn.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Uranus.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Neptune.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Pluto.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    </span><br><span class="line">    // 公转</span><br><span class="line">    Mercury.transform.RotateAround(Sun.transform.position, Vector3.up+0.1f*Vector3.right, speed * Time.deltaTime*34);</span><br><span class="line">    Venus.transform.RotateAround(Sun.transform.position, Vector3.up - 0.1f * Vector3.right, speed * Time.deltaTime*30);</span><br><span class="line">    Earth.transform.RotateAround(Sun.transform.position, Vector3.up + 0.15f * Vector3.right, speed * Time.deltaTime*26);</span><br><span class="line">    Mars.transform.RotateAround(Sun.transform.position, Vector3.up - 0.15f * Vector3.right, speed * Time.deltaTime*22);</span><br><span class="line">    Jupiter.transform.RotateAround(Sun.transform.position, Vector3.up + 0.2f * Vector3.right, speed * Time.deltaTime*18);</span><br><span class="line">    Saturn.transform.RotateAround(Sun.transform.position, Vector3.up - 0.19f * Vector3.right, speed * Time.deltaTime*14);</span><br><span class="line">    Uranus.transform.RotateAround(Sun.transform.position, Vector3.up + 0.18f * Vector3.right, speed * Time.deltaTime*10);</span><br><span class="line">    Neptune.transform.RotateAround(Sun.transform.position, Vector3.up - 0.16f * Vector3.right, speed * Time.deltaTime*6);</span><br><span class="line">    Pluto.transform.RotateAround(Sun.transform.position, Vector3.up + 0.13f * Vector3.right, speed * Time.deltaTime*3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结:"></a>小结:</h4><p>本周算法课刚好在讲分治法, 而刚好碰到类似的题, 便写了下来.<br>时间复杂度大概为 <code>O(n)</code></p>
+<h4 id="Submission-Detail"><a href="#Submission-Detail" class="headerlink" title="Submission Detail:"></a>Submission Detail:</h4><p><img src="/2018/09/11/Leetcode-169-Majority-Element/1.png" alt="Detail"></p>
+<h4 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">int find(int* a, int size, int majority) &#123;</span><br><span class="line">    int mid = a[rand()%size];</span><br><span class="line">    int* small = (int*)malloc(size*sizeof(int));</span><br><span class="line">    int* big = (int*)malloc(size*sizeof(int));</span><br><span class="line">    int smallSize = 0, bigSize = 0, equal = 0;</span><br><span class="line">    for (int i = 0; i &lt; size; ++i) &#123;</span><br><span class="line">        if (a[i] == mid) &#123;</span><br><span class="line">            equal++;</span><br><span class="line">        &#125; else if (a[i] &lt; mid) &#123;</span><br><span class="line">            small[smallSize++] = a[i];</span><br><span class="line">        &#125; else if (a[i] &gt; mid) &#123;</span><br><span class="line">            big[bigSize++] = a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (equal &gt; majority) &#123;</span><br><span class="line">        return mid;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        if (smallSize &lt; bigSize) &#123;</span><br><span class="line">            return find(big, bigSize, majority);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return find(small, smallSize, majority);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int majorityElement(int* nums, int numsSize) &#123;</span><br><span class="line">    return find(nums, numsSize, numsSize/2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -336,8 +337,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/09/homework-1/" rel="next" title="unity3d-1">
-                <i class="fa fa-chevron-left"></i> unity3d-1
+              <a href="/2018/09/05/Leetcode-890-Find-and-Replace-Pattern/" rel="next" title="Leetcode:890. Find and Replace Pattern">
+                <i class="fa fa-chevron-left"></i> Leetcode:890. Find and Replace Pattern
               </a>
             
           </div>
@@ -345,10 +346,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/09/unity3d-3/" rel="prev" title="unity3d-3">
-                unity3d-3 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -462,7 +459,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#物体对象运动的本质"><span class="nav-number">1.</span> <span class="nav-text">物体对象运动的本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物体的抛物线运动"><span class="nav-number">2.</span> <span class="nav-text">物体的抛物线运动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#太阳系仿真"><span class="nav-number">3.</span> <span class="nav-text">太阳系仿真</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#169-Majority-Element"><span class="nav-number">1.</span> <span class="nav-text">169.Majority Element</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目理解"><span class="nav-number">1.1.</span> <span class="nav-text">题目理解:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">1.3.</span> <span class="nav-text">小结:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Submission-Detail"><span class="nav-number">1.4.</span> <span class="nav-text">Submission Detail:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#code"><span class="nav-number">1.5.</span> <span class="nav-text">code:</span></a></li></ol></li></ol></div>
             
 
           </div>
