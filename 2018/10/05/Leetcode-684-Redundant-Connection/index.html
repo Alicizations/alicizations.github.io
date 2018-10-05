@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="关于unity3d的一些运动">
+<meta name="description" content="Graph Union-Find">
 <meta property="og:type" content="article">
-<meta property="og:title" content="unity3d-2">
-<meta property="og:url" content="https://alicizations.github.io/2018/04/09/unity3d-2/index.html">
+<meta property="og:title" content="Leetcode:684. Redundant Connection">
+<meta property="og:url" content="https://alicizations.github.io/2018/10/05/Leetcode-684-Redundant-Connection/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="关于unity3d的一些运动">
+<meta property="og:description" content="Graph Union-Find">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-09T12:20:53.932Z">
+<meta property="og:image" content="https://alicizations.github.io/2018/10/05/Leetcode-684-Redundant-Connection/1.png">
+<meta property="og:updated_time" content="2018-10-05T15:52:27.887Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="unity3d-2">
-<meta name="twitter:description" content="关于unity3d的一些运动">
+<meta name="twitter:title" content="Leetcode:684. Redundant Connection">
+<meta name="twitter:description" content="Graph Union-Find">
+<meta name="twitter:image" content="https://alicizations.github.io/2018/10/05/Leetcode-684-Redundant-Connection/1.png">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://alicizations.github.io/2018/04/09/unity3d-2/"/>
+  <link rel="canonical" href="https://alicizations.github.io/2018/10/05/Leetcode-684-Redundant-Connection/"/>
 
 
 
 
 
-  <title>unity3d-2 | Hello World</title>
+  <title>Leetcode:684. Redundant Connection | Hello World</title>
   
 
 
@@ -232,7 +234,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2018/04/09/unity3d-2/">
+    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2018/10/05/Leetcode-684-Redundant-Connection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ali">
@@ -249,7 +251,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">unity3d-2</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode:684. Redundant Connection</h1>
         
 
         <div class="post-meta">
@@ -261,8 +263,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-09T20:19:51+08:00">
-                2018-04-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-05T23:28:04+08:00">
+                2018-10-05
               </time>
             
 
@@ -299,20 +301,25 @@
       
 
       
-        <p>关于unity3d的一些运动<br><a id="more"></a></p>
-<h3 id="物体对象运动的本质"><a href="#物体对象运动的本质" class="headerlink" title="物体对象运动的本质"></a>物体对象运动的本质</h3><p>是物体对象位置的改变</p>
-<h3 id="物体的抛物线运动"><a href="#物体的抛物线运动" class="headerlink" title="物体的抛物线运动"></a>物体的抛物线运动</h3><ul>
-<li><p>1.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 通过直接改变position来实现</span><br><span class="line">public float v0 = 10.0f;</span><br><span class="line">public float a = 2.0f;</span><br><span class="line">private float t = 0f;</span><br><span class="line"></span><br><span class="line">void Update () &#123;</span><br><span class="line">    t += (float)Time.deltaTime;</span><br><span class="line">    this.transform.position = new Vector3((float)(v0 * t - 0.5 * a * t * t), 0, v0*t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <center>Graph Union-Find</center>
+
+<a id="more"></a> 
+<h3 id="684-Redundant-Connection"><a href="#684-Redundant-Connection" class="headerlink" title="684. Redundant Connection"></a><a href="https://leetcode.com/problems/redundant-connection/description/" target="_blank" rel="noopener">684. Redundant Connection</a></h3><h4 id="题目理解"><a href="#题目理解" class="headerlink" title="题目理解:"></a>题目理解:</h4><p>给出一个无向边集, 返回最后出现的、使得成环的边.    </p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h4><p>将结点分类, 一开始时每个结点自成一类, 之后如果某些结点连通了, 则可以归到一类(不能连通就不是同一类)<br>然后遍历边集, 对边连接的两个结点归为同一类, 但是会出现以下的情况:    </p>
+<ul>
+<li><ol>
+<li>两个结点本来就不是同一类, 那么正常合并    </li>
+</ol>
 </li>
-<li><p>2.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 通过translate函数来实现</span><br><span class="line">public float v0 = 5.0f;</span><br><span class="line"></span><br><span class="line">void Update () &#123;</span><br><span class="line">    v0 += 0.5f;</span><br><span class="line">    this.transform.Translate(v0 * Vector3.up * Time.deltaTime);</span><br><span class="line">    transform.Translate(Vector3.right * Time.deltaTime); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 通过设置游戏对象重力和初速度实现</span><br><span class="line">void Start () &#123;</span><br><span class="line">    this.GetComponent&lt;Rigidbody&gt;().velocity = new Vector3(5, 10, 0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><ol start="2">
+<li>两个结点本来就是同类(连通), 那么该边使得这个类成环, 记录下来这条边<br>这样最后记录下来的边, 就是我们想要的答案    </li>
+</ol>
 </li>
 </ul>
-<h3 id="太阳系仿真"><a href="#太阳系仿真" class="headerlink" title="太阳系仿真"></a>太阳系仿真</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">// 定义游戏对象</span><br><span class="line">public GameObject Sun;</span><br><span class="line">public GameObject Mercury;</span><br><span class="line">public GameObject Venus;</span><br><span class="line">public GameObject Earth;</span><br><span class="line">public GameObject Moon;</span><br><span class="line">public GameObject Mars;</span><br><span class="line">public GameObject Jupiter;</span><br><span class="line">public GameObject Saturn;</span><br><span class="line">public GameObject Uranus;</span><br><span class="line">public GameObject Neptune;</span><br><span class="line">public GameObject Pluto;</span><br><span class="line">public float speed = 5f;</span><br><span class="line"></span><br><span class="line">void Update () &#123;</span><br><span class="line">    // 自转</span><br><span class="line">    Sun.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Mercury.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Venus.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Earth.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Mars.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Jupiter.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Saturn.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Uranus.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Neptune.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    Pluto.transform.Rotate(Vector3.up * Time.deltaTime * 360);</span><br><span class="line">    </span><br><span class="line">    // 公转</span><br><span class="line">    Mercury.transform.RotateAround(Sun.transform.position, Vector3.up+0.1f*Vector3.right, speed * Time.deltaTime*34);</span><br><span class="line">    Venus.transform.RotateAround(Sun.transform.position, Vector3.up - 0.1f * Vector3.right, speed * Time.deltaTime*30);</span><br><span class="line">    Earth.transform.RotateAround(Sun.transform.position, Vector3.up + 0.15f * Vector3.right, speed * Time.deltaTime*26);</span><br><span class="line">    Mars.transform.RotateAround(Sun.transform.position, Vector3.up - 0.15f * Vector3.right, speed * Time.deltaTime*22);</span><br><span class="line">    Jupiter.transform.RotateAround(Sun.transform.position, Vector3.up + 0.2f * Vector3.right, speed * Time.deltaTime*18);</span><br><span class="line">    Saturn.transform.RotateAround(Sun.transform.position, Vector3.up - 0.19f * Vector3.right, speed * Time.deltaTime*14);</span><br><span class="line">    Uranus.transform.RotateAround(Sun.transform.position, Vector3.up + 0.18f * Vector3.right, speed * Time.deltaTime*10);</span><br><span class="line">    Neptune.transform.RotateAround(Sun.transform.position, Vector3.up - 0.16f * Vector3.right, speed * Time.deltaTime*6);</span><br><span class="line">    Pluto.transform.RotateAround(Sun.transform.position, Vector3.up + 0.13f * Vector3.right, speed * Time.deltaTime*3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里有个小问题, 如果检查同一类时使用标识(如某个数字)记录, 那么合并的时候需要遍历整个数组来检查所有标识, 总体的复杂度会上升到 $o(n^2)$ , 开销较大<br>所以下面的代码用<a href="https://www.cnblogs.com/wxgblogs/p/5707503.html" target="_blank" rel="noopener">并查集</a>的数据结构来进行记录, 降低复杂度    </p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结:"></a>小结:</h4><p>继续找图的题目来做, 找到了这个, 一开始从DFS找回边、前进边、横跨边入手, 发现很难找到最后一条成环的边, 答案会根据边集的顺序改变…..<br>后来才看了下Tag, 发现是并查集, 于是换了一个思路, 也不用构造邻接链表了….<br>所以其实就是并查集的练手题   </p>
+<h4 id="Submission-Detail"><a href="#Submission-Detail" class="headerlink" title="Submission Detail:"></a>Submission Detail:</h4><p><img src="/2018/10/05/Leetcode-684-Redundant-Connection/1.png" alt="Detail"></p>
+<h4 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; rooms;</span><br><span class="line">    int start, end;</span><br><span class="line">    vector&lt;int&gt; findRedundantConnection(vector&lt;vector&lt;int&gt;&gt;&amp; edges) &#123;</span><br><span class="line">        start = end = 0;</span><br><span class="line">        for (int i=0; i &lt;= edges.size(); i++) &#123;</span><br><span class="line">            rooms.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for (int i=0; i &lt; edges.size(); i++) &#123;</span><br><span class="line">            if (unionset(edges[i][0], edges[i][1])) &#123;</span><br><span class="line">                start = edges[i][0];</span><br><span class="line">                end = edges[i][1];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        vector&lt;int&gt; t;</span><br><span class="line">        t.push_back(start);</span><br><span class="line">        t.push_back(end);</span><br><span class="line">        return t;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int find(int x) &#123;</span><br><span class="line">        while (x != rooms[x]) &#123; x = rooms[x]; &#125;</span><br><span class="line">        return x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    bool unionset(int x, int y) &#123;</span><br><span class="line">        int xRoot = find(x);  </span><br><span class="line">        int yRoot = find(y);  </span><br><span class="line">        if (xRoot == yRoot)   </span><br><span class="line">            return true;  </span><br><span class="line">        rooms[xRoot] = yRoot;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -336,8 +343,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/09/homework-1/" rel="next" title="unity3d-1">
-                <i class="fa fa-chevron-left"></i> unity3d-1
+              <a href="/2018/09/26/Leetcode-743-Network-Delay-Time/" rel="next" title="Leetcode:743. Network Delay Time">
+                <i class="fa fa-chevron-left"></i> Leetcode:743. Network Delay Time
               </a>
             
           </div>
@@ -345,10 +352,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/09/unity3d-3/" rel="prev" title="unity3d-3">
-                unity3d-3 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -462,7 +465,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#物体对象运动的本质"><span class="nav-number">1.</span> <span class="nav-text">物体对象运动的本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物体的抛物线运动"><span class="nav-number">2.</span> <span class="nav-text">物体的抛物线运动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#太阳系仿真"><span class="nav-number">3.</span> <span class="nav-text">太阳系仿真</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#684-Redundant-Connection"><span class="nav-number">1.</span> <span class="nav-text">684. Redundant Connection</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目理解"><span class="nav-number">1.1.</span> <span class="nav-text">题目理解:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">1.3.</span> <span class="nav-text">小结:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Submission-Detail"><span class="nav-number">1.4.</span> <span class="nav-text">Submission Detail:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#code"><span class="nav-number">1.5.</span> <span class="nav-text">code:</span></a></li></ol></li></ol></div>
             
 
           </div>
