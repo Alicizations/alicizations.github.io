@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Graph Union-Find">
+<meta name="description" content="DP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode:684. Redundant Connection">
-<meta property="og:url" content="https://alicizations.github.io/2018/10/05/Leetcode-684-Redundant-Connection/index.html">
+<meta property="og:title" content="Leetcode:279. Perfect Squares">
+<meta property="og:url" content="https://alicizations.github.io/2018/11/04/Leetcode-279-Perfect-Squares/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="Graph Union-Find">
+<meta property="og:description" content="DP">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://alicizations.github.io/2018/10/05/Leetcode-684-Redundant-Connection/1.png">
-<meta property="og:updated_time" content="2018-10-05T15:52:27.887Z">
+<meta property="og:image" content="https://alicizations.github.io/2018/11/04/Leetcode-279-Perfect-Squares/1.png">
+<meta property="og:updated_time" content="2018-11-04T07:22:31.518Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode:684. Redundant Connection">
-<meta name="twitter:description" content="Graph Union-Find">
-<meta name="twitter:image" content="https://alicizations.github.io/2018/10/05/Leetcode-684-Redundant-Connection/1.png">
+<meta name="twitter:title" content="Leetcode:279. Perfect Squares">
+<meta name="twitter:description" content="DP">
+<meta name="twitter:image" content="https://alicizations.github.io/2018/11/04/Leetcode-279-Perfect-Squares/1.png">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://alicizations.github.io/2018/10/05/Leetcode-684-Redundant-Connection/"/>
+  <link rel="canonical" href="https://alicizations.github.io/2018/11/04/Leetcode-279-Perfect-Squares/"/>
 
 
 
 
 
-  <title>Leetcode:684. Redundant Connection | Hello World</title>
+  <title>Leetcode:279. Perfect Squares | Hello World</title>
   
 
 
@@ -234,7 +234,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2018/10/05/Leetcode-684-Redundant-Connection/">
+    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2018/11/04/Leetcode-279-Perfect-Squares/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ali">
@@ -251,7 +251,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode:684. Redundant Connection</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode:279. Perfect Squares</h1>
         
 
         <div class="post-meta">
@@ -263,8 +263,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-05T23:28:04+08:00">
-                2018-10-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-04T14:59:23+08:00">
+                2018-11-04
               </time>
             
 
@@ -301,25 +301,18 @@
       
 
       
-        <center>Graph Union-Find</center>
+        <center> DP </center>
 
 <a id="more"></a> 
-<h3 id="684-Redundant-Connection"><a href="#684-Redundant-Connection" class="headerlink" title="684. Redundant Connection"></a><a href="https://leetcode.com/problems/redundant-connection/description/" target="_blank" rel="noopener">684. Redundant Connection</a></h3><h4 id="题目理解"><a href="#题目理解" class="headerlink" title="题目理解:"></a>题目理解:</h4><p>给出一个无向边集, 返回最后出现的、使得成环的边.    </p>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h4><p>将结点分类, 一开始时每个结点自成一类, 之后如果某些结点连通了, 则可以归到一类(不能连通就不是同一类)<br>然后遍历边集, 对边连接的两个结点归为同一类, 但是会出现以下的情况:    </p>
-<ul>
-<li><ol>
-<li>两个结点本来就不是同一类, 那么正常合并    </li>
-</ol>
-</li>
-<li><ol start="2">
-<li>两个结点本来就是同类(连通), 那么该边使得这个类成环, 记录下来这条边<br>这样最后记录下来的边, 就是我们想要的答案    </li>
-</ol>
-</li>
-</ul>
-<p>这里有个小问题, 如果检查同一类时使用标识(如某个数字)记录, 那么合并的时候需要遍历整个数组来检查所有标识, 总体的复杂度会上升到 $o(n^2)$ , 开销较大<br>所以下面的代码用<a href="https://www.cnblogs.com/wxgblogs/p/5707503.html" target="_blank" rel="noopener">并查集</a>的数据结构来进行记录, 降低复杂度    </p>
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结:"></a>小结:</h4><p>继续找图的题目来做, 找到了这个, 一开始从DFS找回边、前进边、横跨边入手, 发现很难找到最后一条成环的边, 答案会根据边集的顺序改变…..<br>后来才看了下Tag, 发现是并查集, 于是换了一个思路, 也不用构造邻接链表了….<br>所以其实就是并查集的练手题   </p>
-<h4 id="Submission-Detail"><a href="#Submission-Detail" class="headerlink" title="Submission Detail:"></a>Submission Detail:</h4><p><img src="/2018/10/05/Leetcode-684-Redundant-Connection/1.png" alt="Detail"></p>
-<h4 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; rooms;</span><br><span class="line">    int start, end;</span><br><span class="line">    vector&lt;int&gt; findRedundantConnection(vector&lt;vector&lt;int&gt;&gt;&amp; edges) &#123;</span><br><span class="line">        start = end = 0;</span><br><span class="line">        for (int i=0; i &lt;= edges.size(); i++) &#123;</span><br><span class="line">            rooms.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for (int i=0; i &lt; edges.size(); i++) &#123;</span><br><span class="line">            if (unionset(edges[i][0], edges[i][1])) &#123;</span><br><span class="line">                start = edges[i][0];</span><br><span class="line">                end = edges[i][1];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        vector&lt;int&gt; t;</span><br><span class="line">        t.push_back(start);</span><br><span class="line">        t.push_back(end);</span><br><span class="line">        return t;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int find(int x) &#123;</span><br><span class="line">        while (x != rooms[x]) &#123; x = rooms[x]; &#125;</span><br><span class="line">        return x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    bool unionset(int x, int y) &#123;</span><br><span class="line">        int xRoot = find(x);  </span><br><span class="line">        int yRoot = find(y);  </span><br><span class="line">        if (xRoot == yRoot)   </span><br><span class="line">            return true;  </span><br><span class="line">        rooms[xRoot] = yRoot;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="279-Perfect-Squares"><a href="#279-Perfect-Squares" class="headerlink" title="279. Perfect Squares"></a><a href="https://leetcode.com/problems/perfect-squares/description/" target="_blank" rel="noopener">279. Perfect Squares</a></h3><h4 id="题目理解"><a href="#题目理解" class="headerlink" title="题目理解:"></a>题目理解:</h4><p>给出一个数n, 找出最少的平方数的个数, 他们的和为n    </p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h4><p>用 <code>f[i][j]</code> 记录状态, 表示找到平方数的最少个数; <code>i</code> 表示的是用 <code>1</code>, <code>4</code>, …, <code>i^2</code> 这些数来找平方数; <code>j</code> 表示要找的和; 那么问题的答案就是 <code>f[sqrt(n)][n]</code> 了     </p>
+<p><br></p>
+<p>对于第<code>i</code>个平方数, 考虑取不取它, 分为两种情况, 如果取, 那么相当于<code>n</code>减小, 继续在<code>i</code>个平方数里找; 若不取第<code>i</code>个平方数, 那么就是从<code>i-1</code>个平方数里找; 这样就能够写出状态转移方程 <code>f[i][j] = min{ f[i-1][j], 1+f[i][j-i*i] }</code>     </p>
+<p><br></p>
+<p>然后实现的时候需要注意细节部分, 比如边界状态, <code>f[0][0] = 0</code>, 但 <code>f[0][j] = ∞ (j!=0)</code>, 这里自己思考一下就能明白; 然后选择是否取第<code>i</code>个平方数时, 要考虑<code>j</code>是否足够大, 不然就越界了, 而且实际上与问题也不符     </p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结:"></a>小结:</h4><p>算是简单的动态规划题, 可重复背包的变种, 但是思考起来感觉容易打岔, 也不能很好的明白这样做是不是对的, 可能还需要多加练习         </p>
+<h4 id="Submission-Detail"><a href="#Submission-Detail" class="headerlink" title="Submission Detail:"></a>Submission Detail:</h4><p><img src="/2018/11/04/Leetcode-279-Perfect-Squares/1.png" alt="">    </p>
+<h4 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int f[110][10500];</span><br><span class="line">    int numSquares(int n) &#123;</span><br><span class="line">        for (int i = 0; i &lt;= n; ++i) &#123;</span><br><span class="line">            f[0][i] = 2147483647;</span><br><span class="line">        &#125;</span><br><span class="line">        f[0][0] = 0;</span><br><span class="line">        for (int i = 1; i &lt;= (int)sqrt(n); ++i) &#123;</span><br><span class="line">            for (int j = 0; j &lt;= n; ++j) &#123;</span><br><span class="line">                if (j &lt; i*i) &#123;</span><br><span class="line">                    f[i][j] = f[i-1][j];</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    f[i][j] = min(f[i-1][j], f[i][j-i*i]+1);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return f[(int)sqrt(n)][n];</span><br><span class="line">    &#125;</span><br><span class="line">    int min(int a, int b) &#123;</span><br><span class="line">        if (a &gt; b) &#123;</span><br><span class="line">            return b;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return a;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -343,8 +336,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/26/Leetcode-743-Network-Delay-Time/" rel="next" title="Leetcode:743. Network Delay Time">
-                <i class="fa fa-chevron-left"></i> Leetcode:743. Network Delay Time
+              <a href="/2018/10/27/Leetcode-338-Counting-Bits/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -352,10 +345,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/14/LeetCode-872-Leaf-Similar-Trees/" rel="prev" title="LeetCode:872. Leaf-Similar Trees">
-                LeetCode:872. Leaf-Similar Trees <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -469,7 +458,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#684-Redundant-Connection"><span class="nav-number">1.</span> <span class="nav-text">684. Redundant Connection</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目理解"><span class="nav-number">1.1.</span> <span class="nav-text">题目理解:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">1.3.</span> <span class="nav-text">小结:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Submission-Detail"><span class="nav-number">1.4.</span> <span class="nav-text">Submission Detail:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#code"><span class="nav-number">1.5.</span> <span class="nav-text">code:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#279-Perfect-Squares"><span class="nav-number">1.</span> <span class="nav-text">279. Perfect Squares</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目理解"><span class="nav-number">1.1.</span> <span class="nav-text">题目理解:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">1.3.</span> <span class="nav-text">小结:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Submission-Detail"><span class="nav-number">1.4.</span> <span class="nav-text">Submission Detail:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#code"><span class="nav-number">1.5.</span> <span class="nav-text">code:</span></a></li></ol></li></ol></div>
             
 
           </div>
