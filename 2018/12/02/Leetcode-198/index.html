@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Tree DFS">
+<meta name="description" content="DP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode:872. Leaf-Similar Trees">
-<meta property="og:url" content="https://alicizations.github.io/2018/10/14/LeetCode-872-Leaf-Similar-Trees/index.html">
+<meta property="og:title" content="Leetcode:198">
+<meta property="og:url" content="https://alicizations.github.io/2018/12/02/Leetcode-198/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="Tree DFS">
+<meta property="og:description" content="DP">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://alicizations.github.io/2018/10/14/LeetCode-872-Leaf-Similar-Trees/1.png">
-<meta property="og:updated_time" content="2018-10-14T07:52:21.772Z">
+<meta property="og:image" content="https://alicizations.github.io/2018/12/02/Leetcode-198/1.png">
+<meta property="og:updated_time" content="2018-12-02T10:20:32.221Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode:872. Leaf-Similar Trees">
-<meta name="twitter:description" content="Tree DFS">
-<meta name="twitter:image" content="https://alicizations.github.io/2018/10/14/LeetCode-872-Leaf-Similar-Trees/1.png">
+<meta name="twitter:title" content="Leetcode:198">
+<meta name="twitter:description" content="DP">
+<meta name="twitter:image" content="https://alicizations.github.io/2018/12/02/Leetcode-198/1.png">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://alicizations.github.io/2018/10/14/LeetCode-872-Leaf-Similar-Trees/"/>
+  <link rel="canonical" href="https://alicizations.github.io/2018/12/02/Leetcode-198/"/>
 
 
 
 
 
-  <title>LeetCode:872. Leaf-Similar Trees | Hello World</title>
+  <title>Leetcode:198 | Hello World</title>
   
 
 
@@ -234,7 +234,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2018/10/14/LeetCode-872-Leaf-Similar-Trees/">
+    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2018/12/02/Leetcode-198/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ali">
@@ -251,7 +251,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode:872. Leaf-Similar Trees</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode:198</h1>
         
 
         <div class="post-meta">
@@ -263,8 +263,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-14T15:48:20+08:00">
-                2018-10-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-02T17:57:13+08:00">
+                2018-12-02
               </time>
             
 
@@ -301,14 +301,18 @@
       
 
       
-        <center>Tree DFS</center>
+        <center> DP </center>
 
 <a id="more"></a> 
-<h3 id="872-Leaf-Similar-Trees"><a href="#872-Leaf-Similar-Trees" class="headerlink" title="872. Leaf-Similar Trees"></a><a href="https://leetcode.com/problems/leaf-similar-trees/description/" target="_blank" rel="noopener">872. Leaf-Similar Trees</a></h3><h4 id="题目理解"><a href="#题目理解" class="headerlink" title="题目理解:"></a>题目理解:</h4><p>给出两棵树, 判断他们由叶子结点组成的序列是否相同     </p>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h4><p>对树进行从左子树开始的深度优先搜索, 找到叶子结点则放入栈, 最后比较两个栈是否一致    </p>
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结:"></a>小结:</h4><p>作业太多, 划水一下    </p>
-<h4 id="Submission-Detail"><a href="#Submission-Detail" class="headerlink" title="Submission Detail:"></a>Submission Detail:</h4><p><img src="/2018/10/14/LeetCode-872-Leaf-Similar-Trees/1.png" alt="Detail"></p>
-<h4 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int treeStack1[101], treeStack2[101];</span><br><span class="line">    bool leafSimilar(TreeNode* root1, TreeNode* root2) &#123;</span><br><span class="line">        treeStack1[0] = treeStack2[0] = 0;</span><br><span class="line">        findLeaf(root1, treeStack1);</span><br><span class="line">        findLeaf(root2, treeStack2);</span><br><span class="line">        if (treeStack1[0] != treeStack2[0]) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i = 1; i &lt;= treeStack1[0]; ++i) &#123;</span><br><span class="line">            if (treeStack1[i] != treeStack2[i]) &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    void findLeaf(TreeNode* node, int* s) &#123;</span><br><span class="line">        if (node-&gt;left == nullptr &amp;&amp; node-&gt;right == nullptr) &#123;</span><br><span class="line">            s[++s[0]] = node-&gt;val;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            if (node-&gt;left != nullptr) &#123;</span><br><span class="line">                findLeaf(node-&gt;left, s);</span><br><span class="line">            &#125;</span><br><span class="line">            if (node-&gt;right != nullptr) &#123;</span><br><span class="line">                findLeaf(node-&gt;right, s);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="198-House-Robber"><a href="#198-House-Robber" class="headerlink" title="198. House Robber"></a><a href="https://leetcode.com/problems/house-robber/" target="_blank" rel="noopener">198. House Robber</a></h3><h4 id="题目理解"><a href="#题目理解" class="headerlink" title="题目理解:"></a>题目理解:</h4><p>给出一个数组, 不能取相邻的数, 求能取的最大值    </p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h4><p>用 <code>f[i]</code> 记录状态, 表示后 <code>i</code> 个数中能取的最大值; 问题的答案是 <code>f[n-1]</code>      </p>
+<p><br></p>
+<p>对于 <code>f[i]</code> , 考虑要不要取 <code>num[n-1-i]</code>, 分为两种情况, 如果取, 那么就不能取 <code>num[n-1-i+1]</code>, 那么 <code>f[i] = num[n-1-i] + f[i-2]</code>; 若不取, 那么就是从 <code>n-1-i+1</code> 开始到最后取最大值, 也就是 <code>f[i-1]</code>, 那么  <code>f[i] = f[i-1]</code>; 这样就能够写出状态转移方程 <code>f[i] = max{ num[n-1-i] + f[i-2], f[i-1] }</code>     </p>
+<p><br></p>
+<p>边界状态, <code>f[0] = 1</code>, <code>f[1] = max{num[n-1], num[n-2]}</code>, 这里自己思考一下就能明白;      </p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结:"></a>小结:</h4><p>简单的动态规划题         </p>
+<h4 id="Submission-Detail"><a href="#Submission-Detail" class="headerlink" title="Submission Detail:"></a>Submission Detail:</h4><p><img src="/2018/12/02/Leetcode-198/1.png" alt="">    </p>
+<h4 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; num;</span><br><span class="line">    vector&lt;int&gt; f;</span><br><span class="line">    int n;</span><br><span class="line">    int rob(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        if (nums.size() == 0) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">        num = nums;</span><br><span class="line">        n = num.size();</span><br><span class="line">        f.resize(n, 0);</span><br><span class="line">        f[0] = num[n-1];</span><br><span class="line">        f[1] = max(num[n-1], num[n-2]);</span><br><span class="line">        find(n-1);</span><br><span class="line"></span><br><span class="line">        return f[n-1];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void find(int x) &#123;</span><br><span class="line">        if (x &lt; 2 || f[x] != 0) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        find(x-1);</span><br><span class="line">        find(x-2);</span><br><span class="line">        f[x] = max(num[n-1-x] + f[x-2], f[x-1]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -332,8 +336,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/05/Leetcode-684-Redundant-Connection/" rel="next" title="Leetcode:684. Redundant Connection">
-                <i class="fa fa-chevron-left"></i> Leetcode:684. Redundant Connection
+              <a href="/2018/11/25/Leetcode-121/" rel="next" title="Leetcode:121. Best Time to Buy and Sell Stock">
+                <i class="fa fa-chevron-left"></i> Leetcode:121. Best Time to Buy and Sell Stock
               </a>
             
           </div>
@@ -341,10 +345,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/21/Leetcode-763-Partition-Labels/" rel="prev" title="Leetcode:763. Partition Labels">
-                Leetcode:763. Partition Labels <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -458,7 +458,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#872-Leaf-Similar-Trees"><span class="nav-number">1.</span> <span class="nav-text">872. Leaf-Similar Trees</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目理解"><span class="nav-number">1.1.</span> <span class="nav-text">题目理解:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">1.3.</span> <span class="nav-text">小结:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Submission-Detail"><span class="nav-number">1.4.</span> <span class="nav-text">Submission Detail:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#code"><span class="nav-number">1.5.</span> <span class="nav-text">code:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#198-House-Robber"><span class="nav-number">1.</span> <span class="nav-text">198. House Robber</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目理解"><span class="nav-number">1.1.</span> <span class="nav-text">题目理解:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">1.3.</span> <span class="nav-text">小结:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Submission-Detail"><span class="nav-number">1.4.</span> <span class="nav-text">Submission Detail:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#code"><span class="nav-number">1.5.</span> <span class="nav-text">code:</span></a></li></ol></li></ol></div>
             
 
           </div>
