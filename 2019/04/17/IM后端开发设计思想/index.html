@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="IOS开发实训课程设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IM后端开发设计思想">
+<meta property="og:url" content="https://alicizations.github.io/2019/04/17/IM后端开发设计思想/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="IOS开发实训课程设计">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://alicizations.github.io/2019/04/17/IM后端开发设计思想/1.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/04/17/IM后端开发设计思想/2.png">
+<meta property="og:updated_time" content="2019-04-17T12:15:25.952Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IM后端开发设计思想">
+<meta name="twitter:description" content="IOS开发实训课程设计">
+<meta name="twitter:image" content="https://alicizations.github.io/2019/04/17/IM后端开发设计思想/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://alicizations.github.io/2019/04/17/IM后端开发设计思想/"/>
+
+
+
+
+
+  <title>IM后端开发设计思想 | Hello World</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello World</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2019/04/17/IM后端开发设计思想/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ali">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">IM后端开发设计思想</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-17T20:14:07+08:00">
+                2019-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center>IOS开发实训课程设计</center>
+
+<a id="more"></a>     
+<p>这周确定了课程设计的方向, 做 <code>IM</code>(即时通信App), 我主要负责后端这个方面, 所以学习了一些可以实现的技术细节, 在这里做记录  </p>
+<hr>
+<h2 id="消息通信"><a href="#消息通信" class="headerlink" title="消息通信"></a>消息通信</h2><p>有一个最简单的例子, 就像发手机短信一样, 只要知道手机号码就能发出去并接收到短信, 但实际上(APP的)用户与用户之间是没办法直接了解到互相的网络信息(ip, 端口号)来进行相互通信的, 所以需要用一个服务器来做中转站的功能    </p>
+<p>假设一个场景, 用户A想要给用户B发送一条消息M, 其(简化版)过程就会是下面这样:    </p>
+<ul>
+<li>A 向服务器发送 M    </li>
+<li>服务器接收到 M, 将 M 转发给 B    </li>
+<li>B 接收到消息    </li>
+</ul>
+<p>这样便实现了 <code>A 向 B 发送 M</code> 的过程, 这也可以解决一些问题, 如:    </p>
+<ul>
+<li><code>B的状态</code> 对 <code>A发送M</code> 的这个事件是 <strong>无关</strong> 的, 不必考虑各种问题(在线否, 接收到否)    </li>
+<li>服务器可以控制 <strong>只有双向好友才能通信</strong>     </li>
+<li>等到 B 在线, 服务器才将 M 发送出去, 确保 B 能够接收到    </li>
+</ul>
+<h2 id="消息接收-离线"><a href="#消息接收-离线" class="headerlink" title="消息接收-离线"></a>消息接收-离线</h2><p>上面提到 <strong>等到 B 上线了, 会接收一系列发给 B 的消息</strong>, 实际上是如何实现的呢?    </p>
+<p>其实并不是服务器主动发送 <code>未接收</code> 消息给 B, 而是 B 上线时主动去拉取(请求)回来    </p>
+<h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><ol>
+<li>在服务端, 每个用户都会有一张消息表, 用来记录各种消息记录, 它们有着唯一标识的 <code>序号(seq)</code> 属性    </li>
+<li>在客户端, 存储着用户上一次最后收到的消息的 <code>序号(rev seq)</code>    </li>
+<li>当用户刚登录时, 会向服务端发送一个请求, 拉取 <code>rev seq</code> 后的全部消息, 并更新这个值    </li>
+<li>至此, 用户可以接收到自己未收到的新消息    </li>
+</ol>
+<h2 id="消息接收-在线"><a href="#消息接收-在线" class="headerlink" title="消息接收-在线"></a>消息接收-在线</h2><p>上面说到的是 <strong>离线消息</strong> 的接收, 那么在线消息呢? 总不会要每时每刻都向服务器发送请求查询是否有新消息吧?    </p>
+<p>实际想的是 <strong>服务器接收到消息时, 先看一下用户是否在线, 如果在线, 那么直接发送给用户, 更新本地 <code>rev seq</code></strong>, 如果不在线, 那么就是上面的情况;     </p>
+<p>当然服务端想直接发送信息给用户, 两者之间是需要建立连接的, 放到服务端来实现可以很大优化用户体验    </p>
+<h3 id="具体实现-1"><a href="#具体实现-1" class="headerlink" title="具体实现"></a>具体实现</h3><ol>
+<li>用户上线时, 与服务器建立连接(目前想法是socket连接)    </li>
+<li>建立连接后, 服务器知道哪些用户是在线的, 可以把消息直接转发给用户    </li>
+<li>用户收到消息要记得更新 <code>rev seq</code>    </li>
+<li>用户下线时, 通知服务器断开连接</li>
+<li>服务器要维护在线用户状态    </li>
+</ol>
+<p>(具体socket连接如何实现还没想好)</p>
+<h2 id="消息接收表"><a href="#消息接收表" class="headerlink" title="消息接收表"></a>消息接收表</h2><p>为了更好的扩展, 用户各自的 <code>消息接收表</code> 并不是简单地设计成只存储 <code>seq</code> 和 <code>string</code> 这样的表, 因为这样只能存储一些简单的文字消息, 还要考虑到 <strong>图片/视频/语音/链接</strong> 这样的消息内容    </p>
+<h3 id="具体实现-2"><a href="#具体实现-2" class="headerlink" title="具体实现"></a>具体实现</h3><p>大致想到的表就是图中的样子吧    </p>
+<p><img src="/2019/04/17/IM后端开发设计思想/1.png" alt="">    </p>
+<p>其中:    </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">关键字</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">seq</td>
+<td style="text-align:center">序号</td>
+</tr>
+<tr>
+<td style="text-align:center">from</td>
+<td style="text-align:center">消息发送者</td>
+</tr>
+<tr>
+<td style="text-align:center">type</td>
+<td style="text-align:center">消息类型(文字/图片/视频…)</td>
+</tr>
+<tr>
+<td style="text-align:center">contentID</td>
+<td style="text-align:center">content表的id 用于查询具体内容</td>
+</tr>
+<tr>
+<td style="text-align:center">cid</td>
+<td style="text-align:center">主码</td>
+</tr>
+<tr>
+<td style="text-align:center">content</td>
+<td style="text-align:center">内容, 根据type来解读</td>
+</tr>
+</tbody>
+</table>
+<p>也就是说用户可能会收到多种消息, 然后再根据 <code>contentID</code> 去拿回对应内容进行显示    </p>
+<h2 id="联系人-好友"><a href="#联系人-好友" class="headerlink" title="联系人/好友"></a>联系人/好友</h2><p>这一部分目前思考得不算太多, 大概是每个用户都有自己的好友表(单向), 添加/删除都可以实现, 这样就算重装APP也可以保留好友列表    </p>
+<h2 id="用户信息-验证与存储"><a href="#用户信息-验证与存储" class="headerlink" title="用户信息-验证与存储"></a>用户信息-验证与存储</h2><p>用户可以拥有多个唯一标识, 如 <code>用户id</code>, <code>手机号</code>, <code>邮箱</code>; 拥有一个密码;    </p>
+<p>用户信息包含:    </p>
+<ul>
+<li>昵称    </li>
+<li>头像    </li>
+<li>个性签名    </li>
+<li>等    </li>
+</ul>
+<p>表也挺简单:    </p>
+<p><img src="/2019/04/17/IM后端开发设计思想/2.png" alt="">    </p>
+<h2 id="用户信息-更新"><a href="#用户信息-更新" class="headerlink" title="用户信息-更新"></a>用户信息-更新</h2><p>问题的来源是这样的, 当一个用户更新了自己的信息, 怎么通知其他人呢?    </p>
+<p>请教了老师之后明白了, 关键是用好之前的消息接收表</p>
+<h3 id="具体实现-3"><a href="#具体实现-3" class="headerlink" title="具体实现"></a>具体实现</h3><ol>
+<li>用户更新信息, 会向TA的好友发送一条特殊的消息, <code>type</code> 为 <code>INFO UPDATE</code>(待定)    </li>
+<li>用户收到这样特定的消息会进行特殊处理, 在这里是更新用户信息</li>
+</ol>
+<h2 id="建立好友关系"><a href="#建立好友关系" class="headerlink" title="建立好友关系"></a>建立好友关系</h2><p>同更新用户信息相似, 也是发送一条特殊的消息, 在客户端做特殊处理</p>
+<h3 id="具体实现-4"><a href="#具体实现-4" class="headerlink" title="具体实现"></a>具体实现</h3><ol>
+<li>用户发送好友请求消息, 发送特殊消息, <code>type</code> 为 <code>Friend Req</code>(待定)    </li>
+<li>用户通过或不通过好友申请, 发送特殊消息, <code>type</code> 为 <code>Req SUCC</code> 或 <code>Req FAIL</code>    </li>
+<li>(若成功)服务端在好友表中添加相应用户, 客户端在好友列表添加相应用户    </li>
+</ol>
+<h2 id="未来可能要考虑的内容"><a href="#未来可能要考虑的内容" class="headerlink" title="未来可能要考虑的内容"></a>未来可能要考虑的内容</h2><ul>
+<li>类朋友圈内容发布    </li>
+<li>多种聊天信息(视频/语音)完善    </li>
+<li>表情包保存    </li>
+<li>后台消息推送    </li>
+<li>性能优化    </li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/15/系统分析与设计03/" rel="next" title="系统分析与设计03">
+                <i class="fa fa-chevron-left"></i> 系统分析与设计03
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Ali</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#消息通信"><span class="nav-number">1.</span> <span class="nav-text">消息通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息接收-离线"><span class="nav-number">2.</span> <span class="nav-text">消息接收-离线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#具体实现"><span class="nav-number">2.1.</span> <span class="nav-text">具体实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息接收-在线"><span class="nav-number">3.</span> <span class="nav-text">消息接收-在线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#具体实现-1"><span class="nav-number">3.1.</span> <span class="nav-text">具体实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息接收表"><span class="nav-number">4.</span> <span class="nav-text">消息接收表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#具体实现-2"><span class="nav-number">4.1.</span> <span class="nav-text">具体实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系人-好友"><span class="nav-number">5.</span> <span class="nav-text">联系人/好友</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户信息-验证与存储"><span class="nav-number">6.</span> <span class="nav-text">用户信息-验证与存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户信息-更新"><span class="nav-number">7.</span> <span class="nav-text">用户信息-更新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#具体实现-3"><span class="nav-number">7.1.</span> <span class="nav-text">具体实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立好友关系"><span class="nav-number">8.</span> <span class="nav-text">建立好友关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#具体实现-4"><span class="nav-number">8.1.</span> <span class="nav-text">具体实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未来可能要考虑的内容"><span class="nav-number">9.</span> <span class="nav-text">未来可能要考虑的内容</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ali</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
