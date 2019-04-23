@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="离散数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="离散数学证明">
+<meta property="og:url" content="https://alicizations.github.io/2017/05/21/离散数学证明/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="离散数学">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-04-23T10:26:11.567Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="离散数学证明">
+<meta name="twitter:description" content="离散数学">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://alicizations.github.io/2017/05/21/离散数学证明/"/>
+
+
+
+
+
+  <title>离散数学证明 | Hello World</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello World</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2017/05/21/离散数学证明/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ali">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">离散数学证明</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-21T22:23:43+08:00">
+                2017-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center>离散数学</center>
+
+<a id="more"></a>     
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<hr>
+<h2 id="1-Prove-that-a-tree-a-connected-acyclic-graph-with-n-vertices-has-n-1-edges-by-induction"><a href="#1-Prove-that-a-tree-a-connected-acyclic-graph-with-n-vertices-has-n-1-edges-by-induction" class="headerlink" title="1.Prove that a tree (a connected acyclic graph) with n vertices has n - 1 edges by induction."></a>1.Prove that a tree (a connected acyclic graph) with n vertices has n - 1 edges by induction.</h2><hr>
+<p>Let \( n(k) \) \( \Leftrightarrow \) a tree with n vertices has n-1 edges. </p>
+<p>1.A tree with 1 vertice called \( v_1 \) has no edge. If it has some edges, then they must from \( v_1 \) to \( v_1 \). This is a contradiction in acycle. So \( n(1) \) is true.</p>
+<p>2.Suppose \( n(k) \) is true. ( \( k\geq 1 \) ) Then we prove \( n(k+1) \).    </p>
+<p>Suppose \( T \) is a tree with \( n+1 \) vertices, and it must has a vertice that is one degree. We remove this vertice and its edge, then we get a tree \( T’ \) with \( n \) vertices which has \( n-1 \) vertices according to \( n(k) \). So \( T \) has \( n \) edges.</p>
+<ol>
+<li><p>We can add a vertice in a tree from \( n(k) \) , so we have a graph with a connected and acyclic tree with \( k-1 \) vertices and one other vertice called \( v_{k+1} \).    </p>
+</li>
+<li><p>Then we add a path from \( v_{k+1} \) to anyone vertice in the tree, so the new tree with \( k \) vertices we get is connected. It is also acyclic, because old tree is acyclic and \( v_{k+1} \) has only one degree.    </p>
+</li>
+<li><p>Now we note the vertice in the tree by \( v_0…v_{k+1} \). However we add a new path from \( v_a \) to \( v_b \)( \( a,b \in { 1\ldots k+1 } \) ), we will get a new way from root to \( v_b \), which isn’t a tree.    </p>
+</li>
+<li><p>So, \( n(k+1) \) is true.    </p>
+</li>
+<li>So, we prove that a tree (a connected acyclic graph) with n vertices has n - 1 edges.    </li>
+</ol>
+<h2 id="2-Prove-the-following-theorem"><a href="#2-Prove-the-following-theorem" class="headerlink" title="2. Prove the following theorem:"></a>2. Prove the following theorem:</h2><h4 id="1-If-T-is-an-optimal-binary-tree-with-weights-w-1-leq-w-2-leq-ldots-leq-w-n-then-w-1-and-w-2-are-on-the-deepest-level-and-they-are-brothers-on-some-optimal-binary-tree"><a href="#1-If-T-is-an-optimal-binary-tree-with-weights-w-1-leq-w-2-leq-ldots-leq-w-n-then-w-1-and-w-2-are-on-the-deepest-level-and-they-are-brothers-on-some-optimal-binary-tree" class="headerlink" title="(1) If T is an optimal binary tree with weights \( w_1 \leq w_2 \leq \ldots \leq w_n \), then \( w_1 \) and \( w_2 \) are on the deepest level  and  they are brothers on some optimal binary tree."></a>(1) If T is an optimal binary tree with weights \( w_1 \leq w_2 \leq \ldots \leq w_n \), then \( w_1 \) and \( w_2 \) are on the deepest level  and  they are brothers on some optimal binary tree.</h4><hr>
+<p>假设有一棵树, \( w_k \) 在最底层 \( (k \neq 1) \) , 记到达 \( w_k \) 的路径长度为 \( l_k \). \( w_1 \) 不在最底层, 记到达 \( w_1 \) 的路径长度为 \( l_1 \).</p>
+<p>显然, 我们可以得到 \( w_k \geq w_1, l_k &lt; l_1 \). 记此时这棵树的权值为 \( W_1 \). </p>
+<p>交换 \( w_1 \) 和 \( w_k \) , 此时的权值记为 \( W_2 \). </p>
+<p>可以得到 \(  W_1-W_2 = w_k \cdot l_k + w_1 \cdot l_1 - w_1 \cdot l_k - w_k \cdot l_1 = (w_k - w_1) \cdot (l_k - l_1) \)<br>显然大于零, 由此可得, 将 \( w_1 \) 放在最底层, 整棵树的权值更小. 同理 \( w_2 \). </p>
+<p>对于最优二叉树T, 权值最小, 那么当然有 \( w_1 \) 和 \( w_2 \)在最底层, 且是兄弟节点, 由此证明(1). </p>
+<hr>
+<h4 id="2-If-T-is-an-optimal-binary-tree-with-weights-w-1-leq-w-2-leq-ldots-leq-w-n-and-replace-the-parent-of-w-1-and-w-1-with-a-leaf-with-weight-w-1-w-2-then-the-resulting-tree-T’-is-optimal-for-the-weights-w-1-w-2-w-3-w-4-ldots-w-n"><a href="#2-If-T-is-an-optimal-binary-tree-with-weights-w-1-leq-w-2-leq-ldots-leq-w-n-and-replace-the-parent-of-w-1-and-w-1-with-a-leaf-with-weight-w-1-w-2-then-the-resulting-tree-T’-is-optimal-for-the-weights-w-1-w-2-w-3-w-4-ldots-w-n" class="headerlink" title="(2) If \( T \) is an optimal binary tree with weights \( w_1 \leq w_2 \leq \ldots \leq w_n \), and replace the parent of \( w_1 \) and \( w_1 \) with a leaf with weight \( w_1 + w_2 \), then the resulting tree \( T’ \) is optimal for the weights  \( w_1 + w_2 , w_3 , w_4 , \ldots , w_n \)"></a>(2) If \( T \) is an optimal binary tree with weights \( w_1 \leq w_2 \leq \ldots \leq w_n \), and replace the parent of \( w_1 \) and \( w_1 \) with a leaf with weight \( w_1 + w_2 \), then the resulting tree \( T’ \) is optimal for the weights  \( w_1 + w_2 , w_3 , w_4 , \ldots , w_n \)</h4><hr>
+<p>由题意得: \( w(T) = w(T’) + w_1 + w_2 \)</p>
+<p>假设 \( T’ \) 不是最优二叉树, 那么 \( T’’ \) 是最优的.<br>将 \( T’’ \) 权为 \( w_1 + w_2 \) 的节点生成两个叶子节点 \( w_1 \) 和 \( w_1 \) , 新树为 \( T_k \)<br>同理也有 \( w(T_k) = w(T’’) + w_1 + w_2 \)</p>
+<p>因为 \( T’’ \) 是最优的, 那么 \( W(T’’) \leq W(T’) \)</p>
+<p>如果 \( W(T’’) &lt; W(T’) \), 那么 \( W(T_k) &lt; W(T) \), 与 \( T \) 为最优二叉树矛盾, 所以 \( W(T’’) = W(T’) \), T’为最优树. </p>
+<hr>
+<h2 id="3-Prove-the-following-lemma"><a href="#3-Prove-the-following-lemma" class="headerlink" title="3.Prove the following lemma:"></a>3.Prove the following lemma:</h2><h4 id="Let-G-be-a-weighted-connected-graph-and-let-T-be-a-minimum-spanning-tree-for-T-If-e-is-an-edge-of-G-that-is-not-in-T-then-the-weight-of-e-is-at-least-as-great-as-any-edge-in-the-cycle-created-by-adding-e-to-T"><a href="#Let-G-be-a-weighted-connected-graph-and-let-T-be-a-minimum-spanning-tree-for-T-If-e-is-an-edge-of-G-that-is-not-in-T-then-the-weight-of-e-is-at-least-as-great-as-any-edge-in-the-cycle-created-by-adding-e-to-T" class="headerlink" title="Let \( G \) be a weighted connected graph, and let T be a minimum spanning tree for \( T \). If \( e \) is an edge of \( G \) that is not in \( T \), then the weight of \( e \) is at least as great as any edge in the cycle created by adding \( e \) to \( T \)."></a>Let \( G \) be a weighted connected graph, and let T be a minimum spanning tree for \( T \). If \( e \) is an edge of \( G \) that is not in \( T \), then the weight of \( e \) is at least as great as any edge in the cycle created by adding \( e \) to \( T \).</h4><hr>
+<p>反证法:假设 \( e \) 小于其中某一条边, 记为 \( e_k \). 记原来的权为 \( W(T) \)</p>
+<p>那么我们在树中加入 \( e \), 去掉 \( e_k \), 易知, 得到的还是一个生成树, 记它的权为 \( W(T’) \). </p>
+<p>根据假设, 显然有 \( W(T’) &lt; W(T) \), 与 \( T \) 为最小生成树矛盾, 所以假设不成立, \( e \) 大于等于此回路中在树中的任意一条边, 证毕.</p>
+<hr>
+<h2 id="4-Prove-the-following-theorem"><a href="#4-Prove-the-following-theorem" class="headerlink" title="4.Prove the following theorem:"></a>4.Prove the following theorem:</h2><h4 id="Let-G-be-a-weighted-connected-graph-and-let-V-1-and-V-2-be-a-partition-of-the-vertices-of-G-into-two-disjoint-nonempty-sets-Furthermore-let-e-be-an-edge-in-G-with-minimum-weight-from-among-those-with-one-endpoint-in-V-1-and-the-other-in-V-2-There-is-a-minimum-spanning-tree-T-that-has-e-as-one-of-its-edges"><a href="#Let-G-be-a-weighted-connected-graph-and-let-V-1-and-V-2-be-a-partition-of-the-vertices-of-G-into-two-disjoint-nonempty-sets-Furthermore-let-e-be-an-edge-in-G-with-minimum-weight-from-among-those-with-one-endpoint-in-V-1-and-the-other-in-V-2-There-is-a-minimum-spanning-tree-T-that-has-e-as-one-of-its-edges" class="headerlink" title="Let \( G \) be a weighted connected graph, and let \( V_1 \) and \( V_2 \) be a partition of the vertices of \( G \) into two disjoint nonempty sets. Furthermore, let \( e \) be an edge in \( G \) with minimum weight from among those with one endpoint in \( V_1 \) and the other in \( V_2 \). There is a minimum spanning tree T that has \( e \) as one of its edges."></a>Let \( G \) be a weighted connected graph, and let \( V_1 \) and \( V_2 \) be a partition of the vertices of \( G \) into two disjoint nonempty sets. Furthermore, let \( e \) be an edge in \( G \) with minimum weight from among those with one endpoint in \( V_1 \) and the other in \( V_2 \). There is a minimum spanning tree T that has \( e \) as one of its edges.</h4><hr>
+<p>假设 \( e \) 不在此图的最小生成树(权为 \( W(T) \) )中, 将 \( e \) 加入到该树, 得到一个有回路的树, 且回路会经过 \( V_1 \) 和 \( V_2 \).</p>
+<p>现在把这个回路拿出来, 去掉另一条连接 \( V_1 \) 和 \( V_2 \)的边, 得到新生成树, 其权记为 \( W(T’) \). </p>
+<p>显然有 \( W(T’) \leq W(T) \), 又因为 \( T \) 为最小生成树, 所以有 \( W(T’) = W(T) \), 既 \( T’ \) 也为最小生成树, 所以 \( e \) 在某个最小生成树中, 证毕.</p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/15/Warshall算法/" rel="next" title="Warshall算法">
+                <i class="fa fa-chevron-left"></i> Warshall算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/04/大一初级实训/" rel="prev" title="大一初级实训">
+                大一初级实训 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Ali</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Prove-that-a-tree-a-connected-acyclic-graph-with-n-vertices-has-n-1-edges-by-induction"><span class="nav-number">1.</span> <span class="nav-text">1.Prove that a tree (a connected acyclic graph) with n vertices has n - 1 edges by induction.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Prove-the-following-theorem"><span class="nav-number">2.</span> <span class="nav-text">2. Prove the following theorem:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-If-T-is-an-optimal-binary-tree-with-weights-w-1-leq-w-2-leq-ldots-leq-w-n-then-w-1-and-w-2-are-on-the-deepest-level-and-they-are-brothers-on-some-optimal-binary-tree"><span class="nav-number">2.0.1.</span> <span class="nav-text">(1) If T is an optimal binary tree with weights \( w_1 \leq w_2 \leq \ldots \leq w_n \), then \( w_1 \) and \( w_2 \) are on the deepest level  and  they are brothers on some optimal binary tree.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-If-T-is-an-optimal-binary-tree-with-weights-w-1-leq-w-2-leq-ldots-leq-w-n-and-replace-the-parent-of-w-1-and-w-1-with-a-leaf-with-weight-w-1-w-2-then-the-resulting-tree-T’-is-optimal-for-the-weights-w-1-w-2-w-3-w-4-ldots-w-n"><span class="nav-number">2.0.2.</span> <span class="nav-text">(2) If \( T \) is an optimal binary tree with weights \( w_1 \leq w_2 \leq \ldots \leq w_n \), and replace the parent of \( w_1 \) and \( w_1 \) with a leaf with weight \( w_1 + w_2 \), then the resulting tree \( T’ \) is optimal for the weights  \( w_1 + w_2 , w_3 , w_4 , \ldots , w_n \)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Prove-the-following-lemma"><span class="nav-number">3.</span> <span class="nav-text">3.Prove the following lemma:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Let-G-be-a-weighted-connected-graph-and-let-T-be-a-minimum-spanning-tree-for-T-If-e-is-an-edge-of-G-that-is-not-in-T-then-the-weight-of-e-is-at-least-as-great-as-any-edge-in-the-cycle-created-by-adding-e-to-T"><span class="nav-number">3.0.1.</span> <span class="nav-text">Let \( G \) be a weighted connected graph, and let T be a minimum spanning tree for \( T \). If \( e \) is an edge of \( G \) that is not in \( T \), then the weight of \( e \) is at least as great as any edge in the cycle created by adding \( e \) to \( T \).</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Prove-the-following-theorem"><span class="nav-number">4.</span> <span class="nav-text">4.Prove the following theorem:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Let-G-be-a-weighted-connected-graph-and-let-V-1-and-V-2-be-a-partition-of-the-vertices-of-G-into-two-disjoint-nonempty-sets-Furthermore-let-e-be-an-edge-in-G-with-minimum-weight-from-among-those-with-one-endpoint-in-V-1-and-the-other-in-V-2-There-is-a-minimum-spanning-tree-T-that-has-e-as-one-of-its-edges"><span class="nav-number">4.0.1.</span> <span class="nav-text">Let \( G \) be a weighted connected graph, and let \( V_1 \) and \( V_2 \) be a partition of the vertices of \( G \) into two disjoint nonempty sets. Furthermore, let \( e \) be an edge in \( G \) with minimum weight from among those with one endpoint in \( V_1 \) and the other in \( V_2 \). There is a minimum spanning tree T that has \( e \) as one of its edges.</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ali</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
