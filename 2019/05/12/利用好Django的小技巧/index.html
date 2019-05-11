@@ -96,19 +96,17 @@
 
 
 
-  <meta name="description" content="Array;Divide and Conquer">
+  <meta name="description" content="随缘更新, 随时停更">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode:169.Majority Element">
-<meta property="og:url" content="https://alicizations.github.io/2018/09/11/Leetcode-169-Majority-Element/index.html">
+<meta property="og:title" content="利用好Django的小技巧">
+<meta property="og:url" content="https://alicizations.github.io/2019/05/12/利用好Django的小技巧/index.html">
 <meta property="og:site_name" content="小被窝">
-<meta property="og:description" content="Array;Divide and Conquer">
+<meta property="og:description" content="随缘更新, 随时停更">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://alicizations.github.io/2018/09/11/Leetcode-169-Majority-Element/1.png">
-<meta property="og:updated_time" content="2018-09-11T11:52:26.414Z">
+<meta property="og:updated_time" content="2019-05-11T16:45:37.482Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode:169.Majority Element">
-<meta name="twitter:description" content="Array;Divide and Conquer">
-<meta name="twitter:image" content="https://alicizations.github.io/2018/09/11/Leetcode-169-Majority-Element/1.png">
+<meta name="twitter:title" content="利用好Django的小技巧">
+<meta name="twitter:description" content="随缘更新, 随时停更">
 
 
 
@@ -116,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="https://alicizations.github.io/2018/09/11/Leetcode-169-Majority-Element/"/>
+  <link rel="canonical" href="https://alicizations.github.io/2019/05/12/利用好Django的小技巧/"/>
 
 
 
@@ -126,7 +124,7 @@
   };
 </script>
 
-  <title>Leetcode:169.Majority Element | 小被窝</title>
+  <title>利用好Django的小技巧 | 小被窝</title>
   
 
 
@@ -295,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2018/09/11/Leetcode-169-Majority-Element/"/>
+    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2019/05/12/利用好Django的小技巧/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pachirisu"/>
@@ -312,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode:169.Majority Element
+          <h1 class="post-title" itemprop="name headline">利用好Django的小技巧
 
               
             
@@ -338,7 +336,7 @@
                 
               
 
-              <time title="Created: 2018-09-11 19:21:58 / Modified: 19:52:26" itemprop="dateCreated datePublished" datetime="2018-09-11T19:21:58+08:00">2018-09-11</time>
+              <time title="Created: 2019-05-12 00:36:23 / Modified: 00:45:37" itemprop="dateCreated datePublished" datetime="2019-05-12T00:36:23+08:00">2019-05-12</time>
             
 
             
@@ -361,8 +359,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/2018/09/11/Leetcode-169-Majority-Element/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/11/Leetcode-169-Majority-Element/" itemprop="commentCount"></span>
+                <a href="/2019/05/12/利用好Django的小技巧/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/12/利用好Django的小技巧/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -390,19 +388,19 @@
       
 
       
-        <center>Array;Divide and Conquer</center>
+        <center>随缘更新, 随时停更</center>
 
-<a id="more"></a> 
-<h3 id="169-Majority-Element"><a href="#169-Majority-Element" class="headerlink" title="169.Majority Element"></a><a href="https://leetcode.com/problems/majority-element/description/" target="_blank" rel="noopener">169.Majority Element</a></h3><h4 id="题目理解"><a href="#题目理解" class="headerlink" title="题目理解:"></a>题目理解:</h4><p>找出数组中出现次数大于 <code>n/2</code> 的数字    </p>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h4><p>整体基于分治法的思想, 将数组分为三部分.</p>
-<ul>
-<li>1.随机选择一个数 <code>v</code></li>
-<li>2.将数组分为 <code>&lt;v</code>, <code>=v</code>, <code>&gt;v</code> 三部分</li>
-<li>3.若 <code>sizeof(=v) &gt; n/2</code>, 既满足要求, 则找到; 否则, 从剩下两个小数组中选取较大的一个重复步骤<code>1 2 3</code></li>
-</ul>
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结:"></a>小结:</h4><p>本周算法课刚好在讲分治法, 而刚好碰到类似的题, 便写了下来.<br>时间复杂度大概为 <code>O(n)</code></p>
-<h4 id="Submission-Detail"><a href="#Submission-Detail" class="headerlink" title="Submission Detail:"></a>Submission Detail:</h4><p><img src="/2018/09/11/Leetcode-169-Majority-Element/1.png" alt="Detail"></p>
-<h4 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">int find(int* a, int size, int majority) &#123;</span><br><span class="line">    int mid = a[rand()%size];</span><br><span class="line">    int* small = (int*)malloc(size*sizeof(int));</span><br><span class="line">    int* big = (int*)malloc(size*sizeof(int));</span><br><span class="line">    int smallSize = 0, bigSize = 0, equal = 0;</span><br><span class="line">    for (int i = 0; i &lt; size; ++i) &#123;</span><br><span class="line">        if (a[i] == mid) &#123;</span><br><span class="line">            equal++;</span><br><span class="line">        &#125; else if (a[i] &lt; mid) &#123;</span><br><span class="line">            small[smallSize++] = a[i];</span><br><span class="line">        &#125; else if (a[i] &gt; mid) &#123;</span><br><span class="line">            big[bigSize++] = a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (equal &gt; majority) &#123;</span><br><span class="line">        return mid;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        if (smallSize &lt; bigSize) &#123;</span><br><span class="line">            return find(big, bigSize, majority);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return find(small, smallSize, majority);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int majorityElement(int* nums, int numsSize) &#123;</span><br><span class="line">    return find(nums, numsSize, numsSize/2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>     
+<h1 id="1-完全彻底重置数据库-删库-5-12"><a href="#1-完全彻底重置数据库-删库-5-12" class="headerlink" title="1. 完全彻底重置数据库(删库) - 5/12"></a>1. 完全彻底重置数据库(删库) - 5/12</h1><p>很多时候项目经过多次迭代, 修改了太多次 <code>model</code>, 数据库变得奇怪起来, 就算代码没有错, 有些地方跑起来总是不正确, 特别是用 <code>admin</code> 来管理/查看的时候<br>这时候如果数据不重要, 可以尝试重置数据库再来测试你的项目/代码    </p>
+<p>不过我的小项目还没迭代多少次, <code>model</code> 就改乱了, 出现了上面的问题, 所以记录一下这样的解决方法    </p>
+<h2 id="1-删除所有的migrations"><a href="#1-删除所有的migrations" class="headerlink" title="1. 删除所有的migrations"></a>1. 删除所有的migrations</h2><p>在 <code>CentOS</code> 下, 可以在 <code>manage.py</code> 所在目录执行下面的命令(注意权限):    </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find . -path "*/migrations/*.py" -not -name "__init__.py" -delete</span><br><span class="line">find . -path "*/migrations/*.pyc"  -delete</span><br></pre></td></tr></table></figure>
+<p>如果在其他环境, 可以手动删除这些文件, 每个 <code>app</code>, <code>migrations</code> 目录下的除了 <code>__init__.py</code> 的文件    </p>
+<h2 id="2-删除db-sqlite3文件"><a href="#2-删除db-sqlite3文件" class="headerlink" title="2. 删除db.sqlite3文件"></a>2. 删除db.sqlite3文件</h2><p><code>db.sqlite3</code> 在 <code>manage.py</code> 所在目录下    </p>
+<h2 id="3-重新生成migrations"><a href="#3-重新生成migrations" class="headerlink" title="3. 重新生成migrations"></a>3. 重新生成migrations</h2><p>在 <code>manage.py</code> 所在目录下执行(注意 <code>python</code> 版本, 注意权限):    </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
+<p>完成    </p>
+
       
     </div>
 
@@ -432,8 +430,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/05/Leetcode-890-Find-and-Replace-Pattern/" rel="next" title="Leetcode:890. Find and Replace Pattern">
-                <i class="fa fa-chevron-left"></i> Leetcode:890. Find and Replace Pattern
+              <a href="/2019/05/12/从0-5开始搭建Shadowsocks梯子/" rel="next" title="从0.5开始搭建Shadowsocks梯子">
+                <i class="fa fa-chevron-left"></i> 从0.5开始搭建Shadowsocks梯子
               </a>
             
           </div>
@@ -441,10 +439,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/18/Leetcode-841-Keys-and-Rooms/" rel="prev" title="Leetcode:841. Keys and Rooms">
-                Leetcode:841. Keys and Rooms <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -559,7 +553,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#169-Majority-Element"><span class="nav-number">1.</span> <span class="nav-text">169.Majority Element</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目理解"><span class="nav-number">1.1.</span> <span class="nav-text">题目理解:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">1.3.</span> <span class="nav-text">小结:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Submission-Detail"><span class="nav-number">1.4.</span> <span class="nav-text">Submission Detail:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#code"><span class="nav-number">1.5.</span> <span class="nav-text">code:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-完全彻底重置数据库-删库-5-12"><span class="nav-number">1.</span> <span class="nav-text">1. 完全彻底重置数据库(删库) - 5/12</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-删除所有的migrations"><span class="nav-number">1.1.</span> <span class="nav-text">1. 删除所有的migrations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-删除db-sqlite3文件"><span class="nav-number">1.2.</span> <span class="nav-text">2. 删除db.sqlite3文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-重新生成migrations"><span class="nav-number">1.3.</span> <span class="nav-text">3. 重新生成migrations</span></a></li></ol></li></ol></div>
             
 
           </div>
