@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="初次尝试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Swagger写一份优雅API文档">
+<meta property="og:url" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/index.html">
+<meta property="og:site_name" content="小被窝">
+<meta property="og:description" content="初次尝试">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/1.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/2.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/3.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/4.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/5.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/6.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/7.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/8.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/9.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/10.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/11.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/12.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/13.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/14.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/15.png">
+<meta property="og:updated_time" content="2019-05-12T09:21:45.450Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用Swagger写一份优雅API文档">
+<meta name="twitter:description" content="初次尝试">
+<meta name="twitter:image" content="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/1.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>用Swagger写一份优雅API文档 | 小被窝</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小被窝</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">determined</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2019/05/12/用Swagger写一份优雅API文档/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pachirisu"/>
+      <meta itemprop="description" content="酷毙了"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小被窝"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用Swagger写一份优雅API文档
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-12 16:37:46 / Modified: 17:21:45" itemprop="dateCreated datePublished" datetime="2019-05-12T16:37:46+08:00">2019-05-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2019/05/12/用Swagger写一份优雅API文档/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/12/用Swagger写一份优雅API文档/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center>初次尝试</center>
+
+<a id="more"></a>     
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近要做一些小的课程项目, 然后又是负责服务端这部分的, 所以要写一份优雅的API文档, 减少整个团队的沟通成本(同时也真的挺好看/用的)    </p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>因为项目代码是在 Github 进行托管的, 所以最后也是利用 <code>Github Page</code> 显示出来    </p>
+<p>效果:    </p>
+<p><img src="/2019/05/12/用Swagger写一份优雅API文档/1.png" alt="">    </p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>我用的是<a href="http://editor.swagger.io/" target="_blank" rel="noopener">Swagger 在线编辑</a>, 加载可能有点慢, 然后就动手尝试写吧, 右边的渲染界面会马上把修改后的内容渲染出来    </p>
+<p>或者看下面我对写yaml的一些理解, 主要是分成几个块来写    </p>
+<h3 id="顶端部分"><a href="#顶端部分" class="headerlink" title="顶端部分"></a>顶端部分</h3><p><img src="/2019/05/12/用Swagger写一份优雅API文档/2.png" alt="">    </p>
+<p>这里是最后的 <code>Swagger UI</code> 的顶端部分, 我去掉了一些用不到的代码, 大概用以下地方完成:    </p>
+<p><img src="/2019/05/12/用Swagger写一份优雅API文档/3.png" alt="">    </p>
+<p>有个比较坑的地方, 下面这里是在代码最后的部分= =    </p>
+<p><img src="/2019/05/12/用Swagger写一份优雅API文档/4.png" alt="">    </p>
+<h3 id="API模块"><a href="#API模块" class="headerlink" title="API模块"></a>API模块</h3><p><img src="/2019/05/12/用Swagger写一份优雅API文档/5.png" alt="">    </p>
+<p>当然还有通信协议 <code>HTTP</code> 和 <code>HTTPS</code>(或者其他?)    </p>
+<p>是下面这部分代码写成的:    </p>
+<p><img src="/2019/05/12/用Swagger写一份优雅API文档/6.png" alt="">    </p>
+<h3 id="具体API接口"><a href="#具体API接口" class="headerlink" title="具体API接口"></a>具体API接口</h3><p><img src="/2019/05/12/用Swagger写一份优雅API文档/7.png" alt=""><br><img src="/2019/05/12/用Swagger写一份优雅API文档/8.png" alt="">    </p>
+<p>这接口根本一点都不 <code>RESTful</code> 啊, 对, 作者太菜了, 还要学习学习    </p>
+<p>接口是写在 <code>paths</code> 这里的:    </p>
+<p><img src="/2019/05/12/用Swagger写一份优雅API文档/9.png" alt="">    </p>
+<p><code>register</code> 代码:    </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">/account/register:</span>            <span class="comment"># 路径</span></span><br><span class="line"><span class="attr">  post:</span>                       <span class="comment"># 方法</span></span><br><span class="line"><span class="attr">    tags:</span>                     <span class="comment"># 属于哪个API模块</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"account"</span></span><br><span class="line"><span class="attr">    summary:</span> <span class="string">"注册账户"</span></span><br><span class="line"><span class="attr">    consumes:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"application/json"</span>      <span class="comment"># 请求类型</span></span><br><span class="line"><span class="attr">    produces:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"application/json"</span>      <span class="comment"># 返回类型</span></span><br><span class="line"><span class="attr">    parameters:</span>               <span class="comment"># 参数, 没有则删除这段</span></span><br><span class="line"><span class="attr">    - in:</span> <span class="string">"body"</span></span><br><span class="line"><span class="attr">      name:</span> <span class="string">"body"</span></span><br><span class="line"><span class="attr">      description:</span> <span class="string">"注册信息"</span></span><br><span class="line"><span class="attr">      required:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">      schema:</span></span><br><span class="line">        <span class="string">$ref:</span> <span class="string">"#/definitions/User"</span> <span class="comment"># 这里要加载你定义的model, 下面再说</span></span><br><span class="line"><span class="attr">    responses:</span>                     <span class="comment"># 响应回复</span></span><br><span class="line">      <span class="number">200</span><span class="string">:</span></span><br><span class="line"><span class="attr">        description:</span> <span class="string">"能够处理的请求"</span></span><br><span class="line"><span class="attr">        schema:</span></span><br><span class="line">          <span class="string">$ref:</span> <span class="string">'#/definitions/returnMessage'</span></span><br><span class="line">      <span class="number">404</span><span class="string">:</span></span><br><span class="line"><span class="attr">        description:</span> <span class="string">"不能处理的请求"</span></span><br></pre></td></tr></table></figure>
+<p><code>logout</code> 代码:    </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">/account/logout:</span></span><br><span class="line"><span class="attr">  get:</span></span><br><span class="line"><span class="attr">    tags:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"account"</span></span><br><span class="line"><span class="attr">    summary:</span> <span class="string">"登出"</span></span><br><span class="line"><span class="attr">    consumes:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"application/json"</span></span><br><span class="line"><span class="attr">    produces:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"application/json"</span></span><br><span class="line"><span class="attr">    responses:</span></span><br><span class="line">      <span class="number">200</span><span class="string">:</span></span><br><span class="line"><span class="attr">        description:</span> <span class="string">"能够处理的请求"</span></span><br><span class="line"><span class="attr">        schema:</span></span><br><span class="line">          <span class="string">$ref:</span> <span class="string">'#/definitions/returnMessage'</span></span><br><span class="line">      <span class="number">404</span><span class="string">:</span></span><br><span class="line"><span class="attr">        description:</span> <span class="string">"不能处理的请求"</span></span><br></pre></td></tr></table></figure>
+<h3 id="model"><a href="#model" class="headerlink" title="model"></a>model</h3><p>这里写的东西就是为 <code>API</code> 接口服务的, 便于更好的显示    </p>
+<p><img src="/2019/05/12/用Swagger写一份优雅API文档/10.png" alt=""><br><img src="/2019/05/12/用Swagger写一份优雅API文档/11.png" alt="">    </p>
+<p>大概这么写:    </p>
+<p><img src="/2019/05/12/用Swagger写一份优雅API文档/12.png" alt="">    </p>
+<p>注意一下, <code>xml</code> 是给这个 <code>model</code> 定义一个名字, 然后在上面就可以引用这个名字来显示了    </p>
+<h3 id="然后"><a href="#然后" class="headerlink" title="然后"></a>然后</h3><p>写写写, 写多一会就写好了, 写完了就把 <code>yaml</code> 文件下载下来吧    </p>
+<h2 id="Github-page-设置"><a href="#Github-page-设置" class="headerlink" title="Github page 设置"></a>Github page 设置</h2><h3 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h3><p>我是在项目 <code>repository</code> 的 <code>master</code> 分支根目录新建了文件夹 <code>/docs</code>, 你也可以新开一个 <code>repository</code> 来显示, 都没关系    </p>
+<p>然后在 <code>repository</code> 的 <code>setting</code> 中选好 <code>GitHub Pages</code> 的 <code>Source</code>    </p>
+<p><img src="/2019/05/12/用Swagger写一份优雅API文档/13.png" alt="">    </p>
+<p>但是 <code>/docs</code> 里根本没有东西啊! 对, 接下来放一些东西进去    </p>
+<h3 id="放网页到-docs"><a href="#放网页到-docs" class="headerlink" title="放网页到 docs"></a>放网页到 docs</h3><p>找一个地方, 把 <code>swagger-ui</code> <code>clone</code> 下来    </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/swagger-api/swagger-ui.git</span><br></pre></td></tr></table></figure>
+<p>然后把这个项目的 <code>dist</code> 文件夹里的全部文件复制到刚刚弄好的 <code>docs/</code> 里, 还有之前写好的 <code>yaml</code> 文件    </p>
+<p><img src="/2019/05/12/用Swagger写一份优雅API文档/14.png" alt="">    </p>
+<p>编辑这里的 <code>index.html</code> 文件, 把 <code>url</code> 字段的内容换成你的 <code>yaml</code> 文件    </p>
+<p><img src="/2019/05/12/用Swagger写一份优雅API文档/15.png" alt="">    </p>
+<h3 id="push到仓库-完成"><a href="#push到仓库-完成" class="headerlink" title="push到仓库, 完成!"></a>push到仓库, 完成!</h3><p><code>git</code> 三连    </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m "add docs"</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<p><code>push</code> 完成后, 稍等一会(大概10分钟), 访问你的 <code>Github Page</code> 就可以看到啦    </p>
+<p>或者, 访问你的 <code>Github Page</code> 后面加 <code>index.html</code> 可以马上看到效果    </p>
+<p><a href="https://alicizations.github.io/IM_Server/">这里</a>是我刚写这份博客的时候写好的 <code>API</code> 文档, 不是很好哈哈哈    </p>
+<h2 id="资料备查"><a href="#资料备查" class="headerlink" title="资料备查"></a>资料备查</h2><h3 id="yaml语法说明"><a href="#yaml语法说明" class="headerlink" title="yaml语法说明"></a>yaml语法说明</h3><p>太长建议有需要的时候再查</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line">swagger: &apos;2.0&apos;                      # swagger的版本</span><br><span class="line">info:</span><br><span class="line">  title: 文档标题</span><br><span class="line">  description:  描述</span><br><span class="line">  version: &quot;v1.0&quot;                   # 版本号</span><br><span class="line">  termsOfService: &quot;&quot;                # 文档支持截止日期</span><br><span class="line">  contact:                          # 联系人的信息</span><br><span class="line">    name: &quot;&quot;                        # 联系人姓名</span><br><span class="line">    url: &quot;&quot;                         # 联系人URL</span><br><span class="line">    email: &quot;&quot;                       # 联系人邮箱</span><br><span class="line">  license:                          # 授权信息</span><br><span class="line">    name: &quot;&quot;                        # 授权名称，例如Apache 2.0</span><br><span class="line">    url: &quot;&quot;                         # 授权URL</span><br><span class="line">host: api.haofly.net                # 域名，可以包含端口，如果不提供host，那么默认为提供yaml文件的host</span><br><span class="line">basePath: /                         # 前缀，比如/v1</span><br><span class="line">schemes:                            # 传输协议</span><br><span class="line">  - http</span><br><span class="line">  - https</span><br><span class="line"></span><br><span class="line">securityDefinitions:                # 安全设置</span><br><span class="line">  api_key:</span><br><span class="line">    type: apiKey</span><br><span class="line">    name: Authorization             # 实际的变量名比如，Authorization</span><br><span class="line">    in: header                      # 认证变量放在哪里，query或者header</span><br><span class="line">  OauthSecurity:                    # oauth2的话有些参数必须写全</span><br><span class="line">    type: oauth2</span><br><span class="line">    flow: accessCode                # 可选值为implicit/password/application/accessCode</span><br><span class="line">    authorizationUrl: &apos;https://oauth.simple.api/authorization&apos;</span><br><span class="line">    tokenUrl: &apos;https://oauth.simple.api/token&apos;</span><br><span class="line">    scopes:</span><br><span class="line">      admin: Admin scope</span><br><span class="line">      user: User scope</span><br><span class="line">      media: Media scope</span><br><span class="line">  auth:</span><br><span class="line">    type: oauth2</span><br><span class="line">    description: &quot;&quot;                 # 描述</span><br><span class="line">    authorizationUrl: http://haofly.net/api/oauth/</span><br><span class="line">    name: Authorization             # 实际的变量名比如，Authorization</span><br><span class="line">    tokenUrl:</span><br><span class="line">    flow: implicit                  # oauth2认证的几种形式，implicit/password/application/accessCode</span><br><span class="line">    scopes:</span><br><span class="line">      write:post: 修改文件</span><br><span class="line">      read:post: 读取文章</span><br><span class="line"></span><br><span class="line">security:                           # 全局的安全设置的一个选择吧</span><br><span class="line">  auth:</span><br><span class="line">    - write:pets</span><br><span class="line">    - read:pets</span><br><span class="line"></span><br><span class="line">consumes:                           # 接收的MIME types列表</span><br><span class="line">  - application/json                # 接收响应的Content-Type</span><br><span class="line">  - application/vnd.github.v3+json</span><br><span class="line"></span><br><span class="line">produces:                           # 请求的MIME types列表</span><br><span class="line">  - application/vnd.knight.v1+json  # 请求头的Accept值</span><br><span class="line">  - text/plain; charset=utf-8</span><br><span class="line">tags:                               # 相当于一个分类</span><br><span class="line">  - name: post  </span><br><span class="line">    description: 关于post的接口</span><br><span class="line"></span><br><span class="line">externalDocs:</span><br><span class="line">  description: find more info here</span><br><span class="line">  url: https://haofly.net</span><br><span class="line"></span><br><span class="line">paths:                              # 定义接口的url的详细信息</span><br><span class="line">  /projects/&#123;projectName&#125;:          # 接口后缀，可以定义参数</span><br><span class="line">    get:</span><br><span class="line">      tags:                         # 所属分类的列表</span><br><span class="line">        - post  </span><br><span class="line">      summary: 接口描述              # 简介</span><br><span class="line">      description:                  # 详细介绍</span><br><span class="line">      externalDocs:                 # 这里也可以加这个</span><br><span class="line">        description:</span><br><span class="line">        url:</span><br><span class="line">      operationId: &quot;&quot;               # 操作的唯一ID</span><br><span class="line">      consumes: [string]            # 可接收的mime type列表</span><br><span class="line">      produces: [string]            # 可发送的mime type列表</span><br><span class="line">      schemes: [string]             # 可接收的协议列表</span><br><span class="line">      deprecated: false             # 该接口是否已经弃用</span><br><span class="line">      security:                     # OAuth2认证用</span><br><span class="line">        - auth: </span><br><span class="line">            - write:post</span><br><span class="line">            - read: read</span><br><span class="line">      parameters:                   # 接口的参数</span><br><span class="line">        - name: projectName         # 参数名</span><br><span class="line">          in: path                  # 该参数应该在哪个地方，例如path、body、query等，但是需要注意的是如果in body，只能用schema来指向一个定义好的object，而不能直接在这里定义</span><br><span class="line">          type: string              # 参数类型</span><br><span class="line">          allowEmptyValue: boolean          # 是否允许为空值</span><br><span class="line">          description: 项目名        # 参数描述</span><br><span class="line">          required: true            # 是否必须</span><br><span class="line">          default: *                # 设置默认值</span><br><span class="line">          maximum: number           # number的最大值</span><br><span class="line">          exclusiveMaximum: boolean # 是否排除最大的那个值</span><br><span class="line">          minimum: number           # number的最小值</span><br><span class="line">          exclusiveMinimum: boolean</span><br><span class="line">          maxLength: integer        # int的最大值</span><br><span class="line">          minLength: integer</span><br><span class="line">          enum: [*]                 # 枚举值</span><br><span class="line">          items:                    # type为数组的时候可以定义其项目的类型</span><br><span class="line">        - $ref: &quot;#/parameters/uuidParam&quot;   # 这样可以直接用定义好的</span><br><span class="line">      responses:                    # 设置响应</span><br><span class="line">        200:                        # 通过http状态来描述响应</span><br><span class="line">          description: Success      # 该响应的描述</span><br><span class="line">          schema:                   # 定义返回数据的结构</span><br><span class="line">            $ref: &apos;#/definitions/ProjectDataResponse&apos;  # 直接关联至某个model</span><br><span class="line"></span><br><span class="line">  /another: # 另一个接口</span><br><span class="line">      responses:</span><br><span class="line">        200:</span><br><span class="line">            description:</span><br><span class="line">            schema:</span><br><span class="line">              type: object</span><br><span class="line">              properitis:</span><br><span class="line">                data:</span><br><span class="line">                    $ref: &apos;#/definitions/User&apos; # 关联</span><br><span class="line"></span><br><span class="line">definitions:            # Model/Response的定义，这里的定义不强制要求返回数据必须和这个一致，但是在swagger-ui上，会展示这里面的字段。</span><br><span class="line">  Product:              # 定义一个model</span><br><span class="line">    type: object        # model类型</span><br><span class="line">    properties:         # 字段列表</span><br><span class="line">      product_id:       # 字段名</span><br><span class="line">        type: integer   # 字段类型</span><br><span class="line">        description:    # 字段描述</span><br><span class="line">      product_name:</span><br><span class="line">        type: string</span><br><span class="line">        description: </span><br><span class="line">  ProjectDataResponse:</span><br><span class="line">    type: object</span><br><span class="line">    properties:</span><br><span class="line">        data:</span><br><span class="line">            $ref: &apos;#/definitions/ProjectResponse&apos;  # model之间的关联，表示在data字段里面包含的是一个ProjectResponse对象</span><br><span class="line">parameters:             # 可以供很多接口使用的params</span><br><span class="line">  limitParam:</span><br><span class="line">    name: limit</span><br><span class="line">    in: query</span><br><span class="line">    description: max records to return</span><br><span class="line">    required: true</span><br><span class="line">    type: integer</span><br><span class="line">    format: int32</span><br><span class="line">responses:              # 可以供很多接口使用的responses</span><br><span class="line">  NotFound:</span><br><span class="line">    description: Entity not found.</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/rth362147773/article/details/78992043" target="_blank" rel="noopener">Swagger Edit 安装和使用教程</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/12/利用好Django的小技巧/" rel="next" title="利用好Django的小技巧">
+                <i class="fa fa-chevron-left"></i> 利用好Django的小技巧
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Pachirisu</p>
+              <div class="site-description motion-element" itemprop="description">酷毙了</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">2.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始"><span class="nav-number">3.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶端部分"><span class="nav-number">3.1.</span> <span class="nav-text">顶端部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API模块"><span class="nav-number">3.2.</span> <span class="nav-text">API模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体API接口"><span class="nav-number">3.3.</span> <span class="nav-text">具体API接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#model"><span class="nav-number">3.4.</span> <span class="nav-text">model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#然后"><span class="nav-number">3.5.</span> <span class="nav-text">然后</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github-page-设置"><span class="nav-number">4.</span> <span class="nav-text">Github page 设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先"><span class="nav-number">4.1.</span> <span class="nav-text">首先</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#放网页到-docs"><span class="nav-number">4.2.</span> <span class="nav-text">放网页到 docs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#push到仓库-完成"><span class="nav-number">4.3.</span> <span class="nav-text">push到仓库, 完成!</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资料备查"><span class="nav-number">5.</span> <span class="nav-text">资料备查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#yaml语法说明"><span class="nav-number">5.1.</span> <span class="nav-text">yaml语法说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pachirisu</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'rlvHE7l1eCcosW5vjObYGdqU-gzGzoHsz',
+    appKey: '49kbOjGS6zitkVzPtthMGDzT',
+    placeholder: 'wait for u',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
