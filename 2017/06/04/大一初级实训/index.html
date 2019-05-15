@@ -814,15 +814,15 @@
     
 
     $(function() {
-      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'rlvHE7l1eCcosW5vjObYGdqU-gzGzoHsz')
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'mTspvHH250lr3mxXJbFUvUd5-gzGzoHsz')
         .done(function({ api_server }) {
           var Counter = function(method, url, data) {
             return $.ajax({
               method: method,
               url: 'https://' + api_server + '/1.1' + url,
               headers: {
-                'X-LC-Id': 'rlvHE7l1eCcosW5vjObYGdqU-gzGzoHsz',
-                'X-LC-Key': '49kbOjGS6zitkVzPtthMGDzT',
+                'X-LC-Id': 'mTspvHH250lr3mxXJbFUvUd5-gzGzoHsz',
+                'X-LC-Key': 'aWTxxslYXQH5WxxwqOhBoXBs',
                 'Content-Type': 'application/json',
               },
               data: data
