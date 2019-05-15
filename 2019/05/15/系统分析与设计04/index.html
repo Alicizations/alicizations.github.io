@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="week 12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统分析与设计04">
+<meta property="og:url" content="https://alicizations.github.io/2019/05/15/系统分析与设计04/index.html">
+<meta property="og:site_name" content="小被窝">
+<meta property="og:description" content="week 12">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/15/系统分析与设计04/1.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/15/系统分析与设计04/2.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/15/系统分析与设计04/3.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/15/系统分析与设计04/4.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/15/系统分析与设计04/5.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/15/系统分析与设计04/6.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/15/系统分析与设计04/7.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/15/系统分析与设计04/8.png">
+<meta property="og:updated_time" content="2019-05-15T15:42:15.187Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="系统分析与设计04">
+<meta name="twitter:description" content="week 12">
+<meta name="twitter:image" content="https://alicizations.github.io/2019/05/15/系统分析与设计04/1.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://alicizations.github.io/2019/05/15/系统分析与设计04/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>系统分析与设计04 | 小被窝</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小被窝</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">determined</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2019/05/15/系统分析与设计04/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pachirisu"/>
+      <meta itemprop="description" content="酷毙了"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小被窝"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">系统分析与设计04
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-15 22:12:15 / Modified: 23:42:15" itemprop="dateCreated datePublished" datetime="2019-05-15T22:12:15+08:00">2019-05-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/homework/" itemprop="url" rel="index"><span itemprop="name">homework</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2019/05/15/系统分析与设计04/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/15/系统分析与设计04/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/05/15/系统分析与设计04/" class="leancloud_visitors" data-flag-title="系统分析与设计04">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center>week 12</center>
+
+<a id="more"></a>     
+<h2 id="1、简答题"><a href="#1、简答题" class="headerlink" title="1、简答题"></a>1、简答题</h2><h3 id="用例的概念"><a href="#用例的概念" class="headerlink" title="用例的概念"></a>用例的概念</h3><ul>
+<li>是一种通过用户的使用场景来获取需求的技术;    </li>
+</ul>
+<h3 id="用例和场景的关系-什么是主场景或-happy-path"><a href="#用例和场景的关系-什么是主场景或-happy-path" class="headerlink" title="用例和场景的关系? 什么是主场景或 happy path?"></a>用例和场景的关系? 什么是主场景或 happy path?</h3><ul>
+<li>用例提供了一个或多个场景, 来说明用户和系统是如何互动的;    </li>
+<li>主成功场景或happy path是用例从触发事件开始, 一步一步执行, 最终满足用例利益的步骤集合;    </li>
+</ul>
+<h3 id="用例有哪些形式"><a href="#用例有哪些形式" class="headerlink" title="用例有哪些形式?"></a>用例有哪些形式?</h3><p>根据细度不同来划分:    </p>
+<ul>
+<li><strong>摘要</strong>: 摘要用例有很少的句子组成来总结的用例。它十分适合在电子表格中计划软件开发。一个摘要用例能够简单插入电子表格的单元格中并且用表格中的其它列记述业务优先级, 技术复杂度, 版本号等;    </li>
+<li><strong>非正式</strong>: 一个非正式的用例由文本段落组成, 包括了上面提到的那些列, 用总结或故事的形式详细的描述了用例;     </li>
+<li><strong>完整正式</strong>: 一个完整正式或者复杂的用例是一个以包含了不同部分的长模板为基础的正规的文档。该用例在下面的用例模板部分进行讨论;    </li>
+</ul>
+<h3 id="对于复杂业务-为什么编制完整用例非常难"><a href="#对于复杂业务-为什么编制完整用例非常难" class="headerlink" title="对于复杂业务, 为什么编制完整用例非常难?"></a>对于复杂业务, 为什么编制完整用例非常难?</h3><ul>
+<li>复杂业务场景也复杂, 再加上业务与需求本身就是需要不断迭代来确定的, 还有可能会变化, 所以复杂业务是很难编写出 <strong>完整正式</strong> 的用例的;    </li>
+</ul>
+<h3 id="什么是用例图"><a href="#什么是用例图" class="headerlink" title="什么是用例图?"></a>什么是用例图?</h3><ul>
+<li>用例图并不是画成了图形的用例; 用例图包含一组用例。    </li>
+<li>或者说用例图是一组用例(的概要)的图形化表示;     </li>
+</ul>
+<h3 id="用例图的基本符号与元素"><a href="#用例图的基本符号与元素" class="headerlink" title="用例图的基本符号与元素?"></a>用例图的基本符号与元素?</h3><ul>
+<li>参与者(<code>Actor</code>): 表示与您的应用程序或系统进行交互的用户、 组织或外部系统。 用一个小人表示。    </li>
+</ul>
+<p><img src="/2019/05/15/系统分析与设计04/1.png" alt="">    </p>
+<ul>
+<li>用例(<code>Use Case</code>): 用例就是外部可见的系统功能, 对系统提供的服务进行描述。 用椭圆表示    </li>
+</ul>
+<p><img src="/2019/05/15/系统分析与设计04/2.png" alt="">    </p>
+<ul>
+<li>系统(<code>System</code>): 用来展示系统的一部分功能, 这部分功能联系紧密。    </li>
+</ul>
+<p><img src="/2019/05/15/系统分析与设计04/3.png" alt="">    </p>
+<ul>
+<li>关联(<code>Association</code>): 表示参与者与用例之间的通信, 任何一方都可发送或接受消息。    </li>
+</ul>
+<p><img src="/2019/05/15/系统分析与设计04/4.png" alt="">    </p>
+<ul>
+<li>泛化(Inheritance): 就是通常理解的继承关系, 子用例和父用例相似, 但表现出更特别的行为；子用例将继承父用例的所有结构、行为和关系。子用例可以使用父用例的一段行为, 也可以重载它。父用例通常是抽象的。    </li>
+</ul>
+<p><strong>箭头指向</strong>: 指向父用例    </p>
+<p><img src="/2019/05/15/系统分析与设计04/5.png" alt="">    </p>
+<ul>
+<li>包含(<code>Include</code>): 包含关系用来把一个较复杂用例所表示的功能分解成较小的步骤；    </li>
+</ul>
+<p><strong>箭头指向</strong>: 指向分解出来的功能用例    </p>
+<p><img src="/2019/05/15/系统分析与设计04/6.png" alt="">    </p>
+<ul>
+<li>扩展(<code>Extend</code>): 扩展关系是指 用例功能的延伸, 相当于为基础用例提供一个附加功能。    </li>
+</ul>
+<p><strong>箭头指向</strong>: 指向基础用例    </p>
+<p><img src="/2019/05/15/系统分析与设计04/7.png" alt="">    </p>
+<h3 id="用例图的画法与步骤"><a href="#用例图的画法与步骤" class="headerlink" title="用例图的画法与步骤"></a>用例图的画法与步骤</h3><ol>
+<li><p>确定参与者, 包括:</p>
+<ul>
+<li>主要参与者: 谁将使用系统的主要功能、谁将需要系统的支持以完成工作等    </li>
+<li>协作参与者: 谁将提供对应的系统功能、谁将维护系统, 保证系统处于工作状态等    </li>
+<li>幕后参与者: 谁会对系统产生的结果感兴趣    </li>
+<li>根据用户需求识别和创作用例, 主要重点在于:     </li>
+</ul>
+</li>
+<li><p>识别使用系统的主要参与者(<code>primary actors</code>)/角色(<code>roles</code>)    </p>
+</li>
+<li>识别系统依赖的外部系统    </li>
+<li>识别用例(服务)    </li>
+<li>识别用户级别用例(<code>user goal level</code>)    </li>
+<li>识别子功能级别的用例(<code>sub function level</code>)    </li>
+<li>建立 <code>Actor</code> 和 <code>Use Cases</code> 之间的关联。    </li>
+</ol>
+<h3 id="用例图给利益相关人与开发者的价值有哪些"><a href="#用例图给利益相关人与开发者的价值有哪些" class="headerlink" title="用例图给利益相关人与开发者的价值有哪些?"></a>用例图给利益相关人与开发者的价值有哪些?</h3><ol>
+<li><p>对于利益相关人:     </p>
+<ul>
+<li>可以直观看到系统的结果和用户的功能体验, 保证系统按照用户的需求进行设计。    </li>
+<li>用例能够根据需要对复杂程度和形式化程序进行增减调节, 即能够响应用户(利益相关人)提出的需求, 而用例图则使得这种调节更加便利, 可以通过修改图形间的关系实现。    </li>
+</ul>
+</li>
+<li><p>对于开发者来说:     </p>
+<ul>
+<li>用例图是设计者设计过程的结论与参考, 设计者与开发者之间的交流工具, 开发者开发过程的蓝图。    </li>
+<li>用例图使得开发者能够更明确地获得需求, 更好地理解需求。    </li>
+<li>用例图可以指导开发和测试, 同时可以在整个过程中对其他工作流起到指导作用。    </li>
+</ul>
+</li>
+</ol>
+<h2 id="2、建模练习题-用例模型"><a href="#2、建模练习题-用例模型" class="headerlink" title="2、建模练习题(用例模型)"></a>2、建模练习题(用例模型)</h2><h3 id="选择1个你熟悉的类似业务的在线服务系统-或移动-APP-如定旅馆-携程、去哪儿等-、定电影票、背单词APP等-分别绘制它们用例图。并满足以下要求"><a href="#选择1个你熟悉的类似业务的在线服务系统-或移动-APP-如定旅馆-携程、去哪儿等-、定电影票、背单词APP等-分别绘制它们用例图。并满足以下要求" class="headerlink" title="选择1个你熟悉的类似业务的在线服务系统(或移动 APP), 如定旅馆(携程、去哪儿等)、定电影票、背单词APP等, 分别绘制它们用例图。并满足以下要求:"></a>选择1个你熟悉的类似业务的在线服务系统(或移动 APP), 如定旅馆(携程、去哪儿等)、定电影票、背单词APP等, 分别绘制它们用例图。并满足以下要求:</h3><ul>
+<li>请使用用户的视角, 描述用户目标或系统提供的服务    </li>
+<li>粒度达到子用例级别, 并用 <code>include</code> 和 <code>exclude</code> 关联它们    </li>
+<li>请用色彩标注出你认为创新(区别于竞争对手的)用例或子用例    </li>
+<li>尽可能识别外部系统和服务    </li>
+</ul>
+<p><img src="/2019/05/15/系统分析与设计04/8.png" alt="">    </p>
+<h3 id="然后-回答下列问题"><a href="#然后-回答下列问题" class="headerlink" title="然后, 回答下列问题:"></a>然后, 回答下列问题:</h3><h4 id="为什么相似系统的用例图是相似的"><a href="#为什么相似系统的用例图是相似的" class="headerlink" title="为什么相似系统的用例图是相似的?"></a>为什么相似系统的用例图是相似的?</h4><p>相似系统面对的参与者和用例是相似的, 用例之间的关系也是同构的。用户预期的功能都是相似的, 即不同的同类系统一定具有一致基本功能以及带有自己特色的扩展功能。所以体现在用例图上也是相似的。    </p>
+<h4 id="如果是定旅馆业务-请对比-Asg-RH-用例图-简述如何利用不同时代、-不同地区产品的用例图-展现、-突出创新业务和技术"><a href="#如果是定旅馆业务-请对比-Asg-RH-用例图-简述如何利用不同时代、-不同地区产品的用例图-展现、-突出创新业务和技术" class="headerlink" title="如果是定旅馆业务, 请对比 Asg_RH 用例图, 简述如何利用不同时代、 不同地区产品的用例图, 展现、 突出创新业务和技术"></a>如果是定旅馆业务, 请对比 Asg_RH 用例图, 简述如何利用不同时代、 不同地区产品的用例图, 展现、 突出创新业务和技术</h4><p>不是定旅馆业务    </p>
+<h4 id="如何利用用例图定位创新思路-业务创新、或技术创新、或商业模式创新-在系统中的作用"><a href="#如何利用用例图定位创新思路-业务创新、或技术创新、或商业模式创新-在系统中的作用" class="headerlink" title="如何利用用例图定位创新思路(业务创新、或技术创新、或商业模式创新)在系统中的作用"></a>如何利用用例图定位创新思路(业务创新、或技术创新、或商业模式创新)在系统中的作用</h4><p>如果创新点是一个包含较多子用例的用例(<code>use case</code>), 那么作用较大; 反之较小    </p>
+<h4 id="请使用-SCRUM-方法-选择一个用例图-编制某定旅馆开发的需求-backlog-开发计划表"><a href="#请使用-SCRUM-方法-选择一个用例图-编制某定旅馆开发的需求-backlog-开发计划表" class="headerlink" title="请使用 SCRUM 方法, 选择一个用例图, 编制某定旅馆开发的需求(backlog)开发计划表"></a>请使用 SCRUM 方法, 选择一个用例图, 编制某定旅馆开发的需求(backlog)开发计划表</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">ID</th>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Est</th>
+<th style="text-align:center">Iter</th>
+<th style="text-align:center">Imp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">find hotel</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">make reservation</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">pay reservation</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">modify reservation</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">6</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">comment hotel</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+<h4 id="根据任务4-参考-使用用例点估算软件成本-给出项目用例点的估算"><a href="#根据任务4-参考-使用用例点估算软件成本-给出项目用例点的估算" class="headerlink" title="根据任务4, 参考 使用用例点估算软件成本, 给出项目用例点的估算"></a>根据任务4, 参考 使用用例点估算软件成本, 给出项目用例点的估算</h4><p>根据用户点方法, 对用例分配权重的标准是:     </p>
+<ul>
+<li>简单用例: 1 到 3 个事务, 权重=5    </li>
+<li>一般用例: 4 到 7 个事务, 权重=10     </li>
+<li>复杂用例: 多于 7 个事务, 权重=15     </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">用例</th>
+<th style="text-align:center">业务</th>
+<th style="text-align:center">计算</th>
+<th style="text-align:center">比重</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">搜索地点</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">简单</td>
+</tr>
+<tr>
+<td style="text-align:center">搜索附近</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">简单</td>
+</tr>
+<tr>
+<td style="text-align:center">定位</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">简单</td>
+</tr>
+<tr>
+<td style="text-align:center">导航</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">简单</td>
+</tr>
+<tr>
+<td style="text-align:center">街景</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">简单</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/12/用Swagger写一份优雅API文档/" rel="next" title="用Swagger写一份优雅API文档">
+                <i class="fa fa-chevron-left"></i> 用Swagger写一份优雅API文档
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Pachirisu</p>
+              <div class="site-description motion-element" itemprop="description">酷毙了</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、简答题"><span class="nav-number">1.</span> <span class="nav-text">1、简答题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用例的概念"><span class="nav-number">1.1.</span> <span class="nav-text">用例的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用例和场景的关系-什么是主场景或-happy-path"><span class="nav-number">1.2.</span> <span class="nav-text">用例和场景的关系? 什么是主场景或 happy path?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用例有哪些形式"><span class="nav-number">1.3.</span> <span class="nav-text">用例有哪些形式?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对于复杂业务-为什么编制完整用例非常难"><span class="nav-number">1.4.</span> <span class="nav-text">对于复杂业务, 为什么编制完整用例非常难?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是用例图"><span class="nav-number">1.5.</span> <span class="nav-text">什么是用例图?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用例图的基本符号与元素"><span class="nav-number">1.6.</span> <span class="nav-text">用例图的基本符号与元素?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用例图的画法与步骤"><span class="nav-number">1.7.</span> <span class="nav-text">用例图的画法与步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用例图给利益相关人与开发者的价值有哪些"><span class="nav-number">1.8.</span> <span class="nav-text">用例图给利益相关人与开发者的价值有哪些?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、建模练习题-用例模型"><span class="nav-number">2.</span> <span class="nav-text">2、建模练习题(用例模型)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择1个你熟悉的类似业务的在线服务系统-或移动-APP-如定旅馆-携程、去哪儿等-、定电影票、背单词APP等-分别绘制它们用例图。并满足以下要求"><span class="nav-number">2.1.</span> <span class="nav-text">选择1个你熟悉的类似业务的在线服务系统(或移动 APP), 如定旅馆(携程、去哪儿等)、定电影票、背单词APP等, 分别绘制它们用例图。并满足以下要求:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#然后-回答下列问题"><span class="nav-number">2.2.</span> <span class="nav-text">然后, 回答下列问题:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么相似系统的用例图是相似的"><span class="nav-number">2.2.1.</span> <span class="nav-text">为什么相似系统的用例图是相似的?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如果是定旅馆业务-请对比-Asg-RH-用例图-简述如何利用不同时代、-不同地区产品的用例图-展现、-突出创新业务和技术"><span class="nav-number">2.2.2.</span> <span class="nav-text">如果是定旅馆业务, 请对比 Asg_RH 用例图, 简述如何利用不同时代、 不同地区产品的用例图, 展现、 突出创新业务和技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何利用用例图定位创新思路-业务创新、或技术创新、或商业模式创新-在系统中的作用"><span class="nav-number">2.2.3.</span> <span class="nav-text">如何利用用例图定位创新思路(业务创新、或技术创新、或商业模式创新)在系统中的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请使用-SCRUM-方法-选择一个用例图-编制某定旅馆开发的需求-backlog-开发计划表"><span class="nav-number">2.2.4.</span> <span class="nav-text">请使用 SCRUM 方法, 选择一个用例图, 编制某定旅馆开发的需求(backlog)开发计划表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#根据任务4-参考-使用用例点估算软件成本-给出项目用例点的估算"><span class="nav-number">2.2.5.</span> <span class="nav-text">根据任务4, 参考 使用用例点估算软件成本, 给出项目用例点的估算</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pachirisu</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'rlvHE7l1eCcosW5vjObYGdqU-gzGzoHsz',
+    appKey: '49kbOjGS6zitkVzPtthMGDzT',
+    placeholder: 'wait for u',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'mTspvHH250lr3mxXJbFUvUd5-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'mTspvHH250lr3mxXJbFUvUd5-gzGzoHsz',
+                'X-LC-Key': 'aWTxxslYXQH5WxxwqOhBoXBs',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
