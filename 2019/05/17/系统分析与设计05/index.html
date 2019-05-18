@@ -96,17 +96,20 @@
 
 
 
-  <meta name="description" content="week 3">
+  <meta name="description" content="week 12">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Warshall算法">
-<meta property="og:url" content="https://alicizations.github.io/2017/05/15/Warshall算法/index.html">
+<meta property="og:title" content="系统分析与设计05">
+<meta property="og:url" content="https://alicizations.github.io/2019/05/17/系统分析与设计05/index.html">
 <meta property="og:site_name" content="小被窝">
-<meta property="og:description" content="week 3">
+<meta property="og:description" content="week 12">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-23T10:23:15.952Z">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/17/系统分析与设计05/1.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/17/系统分析与设计05/2.png">
+<meta property="og:updated_time" content="2019-05-17T16:05:36.559Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Warshall算法">
-<meta name="twitter:description" content="week 3">
+<meta name="twitter:title" content="系统分析与设计05">
+<meta name="twitter:description" content="week 12">
+<meta name="twitter:image" content="https://alicizations.github.io/2019/05/17/系统分析与设计05/1.png">
 
 
 
@@ -114,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="https://alicizations.github.io/2017/05/15/Warshall算法/"/>
+  <link rel="canonical" href="https://alicizations.github.io/2019/05/17/系统分析与设计05/"/>
 
 
 
@@ -124,7 +127,7 @@
   };
 </script>
 
-  <title>Warshall算法 | 小被窝</title>
+  <title>系统分析与设计05 | 小被窝</title>
   
 
 
@@ -310,7 +313,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2017/05/15/Warshall算法/"/>
+    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2019/05/17/系统分析与设计05/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pachirisu"/>
@@ -327,7 +330,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Warshall算法
+          <h1 class="post-title" itemprop="name headline">系统分析与设计05
 
               
             
@@ -353,7 +356,7 @@
                 
               
 
-              <time title="Created: 2017-05-15 21:19:53" itemprop="dateCreated datePublished" datetime="2017-05-15T21:19:53+08:00">2017-05-15</time>
+              <time title="Created: 2019-05-17 20:02:34" itemprop="dateCreated datePublished" datetime="2019-05-17T20:02:34+08:00">2019-05-17</time>
             
 
             
@@ -370,11 +373,29 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-23 18:23:15" itemprop="dateModified" datetime="2019-04-23T18:23:15+08:00">2019-04-23</time>
+                <time title="Modified: 2019-05-18 00:05:36" itemprop="dateModified" datetime="2019-05-18T00:05:36+08:00">2019-05-18</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/homework/" itemprop="url" rel="index"><span itemprop="name">homework</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -388,8 +409,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/2017/05/15/Warshall算法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/05/15/Warshall算法/" itemprop="commentCount"></span>
+                <a href="/2019/05/17/系统分析与设计05/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/17/系统分析与设计05/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -397,7 +418,7 @@
 
           
           
-            <span id="/2017/05/15/Warshall算法/" class="leancloud_visitors" data-flag-title="Warshall算法">
+            <span id="/2019/05/17/系统分析与设计05/" class="leancloud_visitors" data-flag-title="系统分析与设计05">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -428,26 +449,16 @@
       
 
       
-        <center>week 3</center>
+        <center>week 12</center>
 
 <a id="more"></a>     
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<blockquote>
-<p>原文来自离散数学结构课本, 作业是要翻译这段, 想着保留下来.<br>目前(17.05.15)只是将word上的复制过来而已, 日后有时间弄成标准的markdown形式</p>
-</blockquote>
-<h2 id="定理2"><a href="#定理2" class="headerlink" title="定理2:"></a>定理2:</h2><p>A是一个基数为n的集合，R是A上的一个关系，则有<br>\(R ^ {\infty} = R \cup R^2 \cup R^3 \cup \cdots \cup R^n \).</p>
-<p>换句话说，计算不需要用到R的n次以上的幂。</p>
-<h2 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h2><p>\(a,b\) 是 \(A\) 中的元素，假设是 \(R\) 中一条从 \(a\) 到 \(b\) 的路，那么都在 \(R\) 中。如果和是同一个顶点，约定 \(j&gt;i\) ，那么这段路能被划分为三个部分。第一段从 \(a\) 到 \(x_i\) ，第二段从 \(x_i\) 到 \(x_j\) ，第三段从 \(x_j\) 到 \(b\) 。中间的第二段是个循环 ，因为 \(x_i = x_j\) ，所以我们除去重复然后连接前后两段。这样我们就得到一条更短的，从 \(a\) 到 \(b\) 的路。</p>
-<p>现在 \(a,x_1,x_2,x_3,…,x_k,b\) 是 \(a\) 到 \(b\) 最短的路。如果 \(a \neq b\) ，那么 \(a,x_1,x_2,x_3,…,x_k,b\) 都是不同的顶点。否则，根据先前的讨论，我们能找到一条更短的路。因此，这条路的长度最多为 \(n-1\) （因为 \(\left| A\right| = n\) ）。如果 \(a = b\) ，相似地，顶点 \(a,x_1,x_2,x_3,…,x_k\) 是不同的，所以这条路的长度最多为 \(n\) 。总之，如果 \(a R^{\infty} b\) ，那么只要 \(a R^k b,1 \leq k \leq n\) 。因此 \(R ^ {\infty} = R \cup R^2 \cup R^3 \cup \cdots \cup R^n \).<br>例1用的方法都有明显的缺点。画图的方法对于巨大的集合不适用，它本身也不是系统化的方法。矩阵的方法是通用的且系统化得足以应用于计算机编程，但是对于庞大的矩阵，它就显得效率低下、过于浪费资源。幸运的是，有一个更加高效地计算传递闭包的算法。就是被熟知的沃夏尔算法，我们马上会讲到。</p>
-<h2 id="沃夏尔算法"><a href="#沃夏尔算法" class="headerlink" title="沃夏尔算法"></a>沃夏尔算法</h2><p>设集合，是上的关系。如果是中的路，那么任意除了和都叫作路的内部点。现在，对于，我们用以下方法定义一个布尔矩阵。当到之间存在一条路，其内部点来自集合，那么的第i行第j列位置为1。<br>因为任意的顶点一定在集合中，它所代表的矩阵某个位置为1，当且仅当与之间有路。也就是说，。如果我们定义，那么我们就得到一个数列，。我们会展示怎么从计算得到。这样我们就能从一步一步，经过n步计算得到。这个过程被称为沃夏尔算法。和的幂级是不一样的，这种不同使得它能大量节省计算的传递闭包的步骤。<br>假设和。如果，就说明与有路，而且这条路只经过一些在集合的顶点。如果没有经过，那么肯定经过了集合中的点，即。如果经过了，那么情况就像图4.44所展示的那样。在定理2的证明中，我们假定了内部点都是互异的。因此只会在路中出现一次，所以子路1和子路2的点必然来自集合。这意味着和。<br>综上，只要<br>    （1） 或者<br>    （2）</p>
-<p>这就是沃夏尔算法的基本内容。如果的i，j位置为1，根据（1），对应位置也为1。根据（2），如果的i，k位置为1，且k，j位置也为1，那么的i，j位置就为1。根据以下过程我们就能从计算出。<br>第一步 转移所有1到。<br>第二步 列出中第k行中为1的列数，第k列为1的行数<br>第三部 将中，位置设为1。<br>例二 思考定义在例一的关系R，那么</p>
-<p>和n=4<br>第一步我们要计算那么。在2，1位置和1，2位置都为1，因此只是在基础上，在2，2位置变为1。</p>
-<p>现在我们计算，那么，我们必须考虑第2列和第二行的位置。在位置1，2；2，2；2，1；2，3都为1。<br>因此，为了得到，我们必须在的基础上将1，1；1，2；1，3；2，1；2，2；2，3位置置为1。我们看到</p>
-<p>继续这个过程，在位置1，3；2，3；3，4为1。为了得到，我们要将1，4；2，4置为1。那么</p>
-<p>最后，第4列的1，2，3位置为1，不过没有1在第4行，所以没有新的位置被置为1，那么，我们就得到了例一的结果。<br>例二说明的过程产生了一下的算法CLOSURE来计算基于矩阵关系R的传递闭包。</p>
-<h3 id="算法-沃夏尔"><a href="#算法-沃夏尔" class="headerlink" title="算法 沃夏尔"></a>算法 沃夏尔</h3><p>这个算法是被建立在精确的执行出我们先前写出来的过程。如果稍作修改，它能稍微提高一点效率。如果我们认为赋值和比较是一步完成的，那么两个布尔矩阵A、B的布尔积需要步，因为我们要计算个元素，每个需要n次比较。去计算全部的积，我们需要步，因为需要步来计算矩阵乘积。如果直接用公式</p>
-<p>会需要步来实现（忽略最终连接）。因此沃夏尔算法是对于直接用公式（1）计算的重大改进。</p>
+<h2 id="使用-UMLet-建模"><a href="#使用-UMLet-建模" class="headerlink" title="使用 UMLet 建模:"></a>使用 UMLet 建模:</h2><h3 id="1、根据订旅馆建模文档-Asg-RH-pdf"><a href="#1、根据订旅馆建模文档-Asg-RH-pdf" class="headerlink" title="1、根据订旅馆建模文档, Asg-RH.pdf:"></a>1、根据订旅馆建模文档, Asg-RH.pdf:</h3><h4 id="绘制用例图模型-到子用例"><a href="#绘制用例图模型-到子用例" class="headerlink" title="绘制用例图模型(到子用例)"></a>绘制用例图模型(到子用例)</h4><p><img src="/2019/05/17/系统分析与设计05/1.png" alt="">    </p>
+<h4 id="给出-make-reservation-用例的活动图"><a href="#给出-make-reservation-用例的活动图" class="headerlink" title="给出 make reservation 用例的活动图"></a>给出 make reservation 用例的活动图</h4><p><img src="/2019/05/17/系统分析与设计05/2.png" alt="">    </p>
+<h3 id="2、根据课程练习”投递员使用投递箱给收件人快递包裹”的业务场景"><a href="#2、根据课程练习”投递员使用投递箱给收件人快递包裹”的业务场景" class="headerlink" title="2、根据课程练习”投递员使用投递箱给收件人快递包裹”的业务场景"></a>2、根据课程练习”投递员使用投递箱给收件人快递包裹”的业务场景</h3><h4 id="分别用多泳道图建模三个场景的业务过程"><a href="#分别用多泳道图建模三个场景的业务过程" class="headerlink" title="分别用多泳道图建模三个场景的业务过程"></a>分别用多泳道图建模三个场景的业务过程</h4><h4 id="根据上述流程-给出快递柜系统最终的用例图模型"><a href="#根据上述流程-给出快递柜系统最终的用例图模型" class="headerlink" title="根据上述流程, 给出快递柜系统最终的用例图模型"></a>根据上述流程, 给出快递柜系统最终的用例图模型</h4><ul>
+<li>用正常色彩表示第一个业务流程反映的用例     </li>
+<li>用绿色背景表述第二个业务场景添加或修改的用例, 以及支持 Actor     </li>
+<li>用黄色背景表述第三个业务场景添加或修改的用例, 以及支持 Actor     </li>
+</ul>
 
       
     </div>
@@ -478,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/15/git学习指南/" rel="next" title="git学习指南">
-                <i class="fa fa-chevron-left"></i> git学习指南
+              <a href="/2019/05/15/系统分析与设计04/" rel="next" title="系统分析与设计04">
+                <i class="fa fa-chevron-left"></i> 系统分析与设计04
               </a>
             
           </div>
@@ -488,8 +499,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/21/离散数学证明/" rel="prev" title="离散数学证明">
-                离散数学证明 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/18/记-人性的弱点/" rel="prev" title="记<人性的弱点>">
+                记<人性的弱点> <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -626,7 +637,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定理2"><span class="nav-number">1.</span> <span class="nav-text">定理2:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证明："><span class="nav-number">2.</span> <span class="nav-text">证明：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#沃夏尔算法"><span class="nav-number">3.</span> <span class="nav-text">沃夏尔算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法-沃夏尔"><span class="nav-number">3.1.</span> <span class="nav-text">算法 沃夏尔</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-UMLet-建模"><span class="nav-number">1.</span> <span class="nav-text">使用 UMLet 建模:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、根据订旅馆建模文档-Asg-RH-pdf"><span class="nav-number">1.1.</span> <span class="nav-text">1、根据订旅馆建模文档, Asg-RH.pdf:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#绘制用例图模型-到子用例"><span class="nav-number">1.1.1.</span> <span class="nav-text">绘制用例图模型(到子用例)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给出-make-reservation-用例的活动图"><span class="nav-number">1.1.2.</span> <span class="nav-text">给出 make reservation 用例的活动图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、根据课程练习”投递员使用投递箱给收件人快递包裹”的业务场景"><span class="nav-number">1.2.</span> <span class="nav-text">2、根据课程练习”投递员使用投递箱给收件人快递包裹”的业务场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分别用多泳道图建模三个场景的业务过程"><span class="nav-number">1.2.1.</span> <span class="nav-text">分别用多泳道图建模三个场景的业务过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#根据上述流程-给出快递柜系统最终的用例图模型"><span class="nav-number">1.2.2.</span> <span class="nav-text">根据上述流程, 给出快递柜系统最终的用例图模型</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
