@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="后端部分就是苦了前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django之超简单的处理图片上传">
+<meta property="og:url" content="https://alicizations.github.io/2019/05/18/Django之超简单的处理图片上传/index.html">
+<meta property="og:site_name" content="小被窝">
+<meta property="og:description" content="后端部分就是苦了前端">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/18/Django之超简单的处理图片上传/1.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/18/Django之超简单的处理图片上传/2.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/18/Django之超简单的处理图片上传/3.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/18/Django之超简单的处理图片上传/4.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/18/Django之超简单的处理图片上传/5.png">
+<meta property="og:image" content="https://alicizations.github.io/2019/05/18/Django之超简单的处理图片上传/6.png">
+<meta property="og:updated_time" content="2019-05-19T02:19:13.905Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django之超简单的处理图片上传">
+<meta name="twitter:description" content="后端部分就是苦了前端">
+<meta name="twitter:image" content="https://alicizations.github.io/2019/05/18/Django之超简单的处理图片上传/1.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://alicizations.github.io/2019/05/18/Django之超简单的处理图片上传/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Django之超简单的处理图片上传 | 小被窝</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小被窝</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">determined</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2019/05/18/Django之超简单的处理图片上传/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pachirisu"/>
+      <meta itemprop="description" content="酷毙了"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小被窝"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Django之超简单的处理图片上传
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-18 23:51:05" itemprop="dateCreated datePublished" datetime="2019-05-18T23:51:05+08:00">2019-05-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-19 10:19:13" itemprop="dateModified" datetime="2019-05-19T10:19:13+08:00">2019-05-19</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/DevOps/" itemprop="url" rel="index"><span itemprop="name">DevOps</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2019/05/18/Django之超简单的处理图片上传/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/18/Django之超简单的处理图片上传/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/05/18/Django之超简单的处理图片上传/" class="leancloud_visitors" data-flag-title="Django之超简单的处理图片上传">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center>后端部分</center><br><center>就是苦了前端</center>
+
+<a id="more"></a>     
+<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p><code>Django</code> 本身用来开发已经很迅速了, 默认使用自带的 <code>sqlite3</code> 数据库, 可以完成基本的关系型数据存储的需求, 不过在其 <code>model</code> 中还有一个特别的字段, 就是 <code>ImageField</code>, 顾名思义, 就是存储图片的一个字段    </p>
+<h2 id="ImageField"><a href="#ImageField" class="headerlink" title="ImageField"></a>ImageField</h2><p>虽然这个字段能够完成存储图片的功能, 但不代表这个字段的值, 就是一个图片, 一般使用它的 <code>url</code> 属性    </p>
+<p>一般是下面这样简单的用法:    </p>
+<ol>
+<li>在 <code>project_name/settings.py</code> 中写入:    </li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MEDIA_ROOT = os.path.join(BASE_DIR, <span class="string">'media'</span>).replace(<span class="string">'\\'</span>, <span class="string">'/'</span>)</span><br><span class="line"></span><br><span class="line">MEDIA_URL = <span class="string">'/media/'</span></span><br></pre></td></tr></table></figure>
+<p>这样你就设定了一个 <code>MEDIA_ROOT</code>, 这个目录是用来保存一些动态文件; 后面 <code>ImageField</code> 的图片会保存在这个目录下    </p>
+<ol start="2">
+<li>设计你的 <code>model</code> </li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Avatar = models.ImageField(upload_to = <span class="string">'avatar'</span>)</span><br></pre></td></tr></table></figure>
+<p><code>upload_to</code> 表示你上传到哪个文件夹, 这个例子是上传到 <code>/media/avatar</code> 这里    </p>
+<ol start="3">
+<li>在 <code>view</code> 中处理从前端提交的图片 </li>
+</ol>
+<p>这里其实就有很多中处理方法, 比如把图片视为简单的 <code>python</code> <code>file</code>, 然后自定义处理方式, 保存到自己想要的位置, 设定文件名等, 可以给一下实例代码:    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@login_required</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload_avatar</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        print(request.FILES)</span><br><span class="line">        <span class="comment"># 从这里开始, 把文件拿出来然后像普通文件一样处理</span></span><br><span class="line">        file = request.FILES.get(<span class="string">'avatar'</span>, <span class="keyword">None</span>)</span><br><span class="line">        filePath = handel_avatar(file,request.user.id)</span><br><span class="line">        <span class="keyword">if</span> filePath:</span><br><span class="line">            config = request.user.config</span><br><span class="line">            config.avatar.name = filePath</span><br><span class="line">            config.save()</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">'result'</span>:<span class="keyword">True</span>&#125;)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(status=<span class="number">403</span>)</span><br><span class="line"><span class="comment"># 文件处理函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handel_avatar</span><span class="params">(file,id)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> file == <span class="keyword">None</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">    extension = os.path.splitext(file.name)[<span class="number">1</span>][<span class="number">1</span>:].lower()</span><br><span class="line">    file_path = os.path.join(</span><br><span class="line">        settings.BASE_DIR, <span class="string">'static/img/'</span>, str(id)+<span class="string">'.'</span>+extension)</span><br><span class="line">    <span class="keyword">if</span> extension <span class="keyword">not</span> <span class="keyword">in</span> [<span class="string">'jpg'</span>, <span class="string">'bmp'</span>, <span class="string">'png'</span>]  <span class="keyword">or</span> file.size &gt; <span class="number">1024</span>*<span class="number">1024</span>*<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">    f = open(file_path, <span class="string">'wb'</span>)</span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> file.chunks():</span><br><span class="line">        f.write(c)</span><br><span class="line">    f.close()</span><br><span class="line">    <span class="keyword">return</span> os.path.join(<span class="string">'static/img/'</span>,str(id) +<span class="string">'.'</span>+extension)</span><br></pre></td></tr></table></figure>
+<p>不过这样有点重复造轮子的感觉, 毕竟 <code>Django</code> 设计了这个字段, 肯定有它的用法(当然需要高度自定义的话, 可能还是要自己造轮子)     </p>
+<hr>
+<p>其实最简单的方法就是把 <strong>取出来的 <code>file</code> 直接赋值给对应字段</strong>, 就像下面这样:    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t_user.Avatar = request.FILES[<span class="string">'file'</span>]</span><br></pre></td></tr></table></figure>
+<p>这样这个字段就保存好这个图片的信息了, 如果你要使用这个图片的话, 可以使用它的 <code>url</code> 属性, 然后找到这个图片, 进行自定义处理    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在这里返回路径信息</span></span><br><span class="line"><span class="keyword">return</span> jsonMSG(state = <span class="string">'ok'</span>, msg = t_user.Avatar.url)</span><br></pre></td></tr></table></figure>
+<h2 id="其他细节"><a href="#其他细节" class="headerlink" title="其他细节"></a>其他细节</h2><ol>
+<li>默认图片    </li>
+</ol>
+<p>因为这里本身的需求是对头像图片的处理, 所以要设定一张默认图片来显示, 其实也很简单, 在 <code>model</code> 里定义的时候添加 <code>default</code> 属性即可:    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Avatar = models.ImageField(upload_to = <span class="string">'avatar'</span>, default = <span class="string">'avatar/default.jpg'</span>)</span><br></pre></td></tr></table></figure>
+<p>这样这个字段默认就会是 <code>avatar/default.jpg</code> 对应的图片    </p>
+<ol start="2">
+<li>前端处理    </li>
+</ol>
+<p>前面在 <code>view</code> 中处理的时候是从 <code>request.FILES[&#39;file&#39;]</code> 中拿到的, 所以前端要发送对应的请求, 这个是要求前端发送的 <strong>表单消息格式</strong> 是 <code>multipart/from-data</code>, 也就是 <code>Content-Type</code> 为 <code>multipart/from-data</code>    </p>
+<p>一般的 <code>html</code> 都可以设定这种类型, 不过在 <code>iOS</code> 中并没有原生的支持, 所以一是自己写一个 <code>HTTP</code> 报文, 或者是使用 <code>AFNetworking</code> 这个框架    </p>
+<ol start="3">
+<li>文件名的问题    </li>
+</ol>
+<p>如果只是上面这样简单的使用, 文件名是保留为上传时候的文件名, 这样当有重复文件名的图片被接受到时, 原来的就被 <strong>覆盖</strong> 了, 这就很不友好, 所以文件名一般需要后端这边另外设置一下    </p>
+<p><code>ImageField</code> 这个字段在存储时其实也是有自己的文件处理函数, 所以可以把这个文件处理换成我们自己想要的, 在里面更改文件名, 这样就可以达到这个需求; 而这个文件处理类在字段定义的时候就可以赋予了, 不过还有一些操作过程:    </p>
+<hr>
+<p>在 <code>BASE_DIR</code> 中新建一个文件夹 <code>system</code>, 进入这个文件夹, 创建一个内容为空的 <code>__init__.py</code> 文件, 创建 <code>storage.py</code>, 输入以下内容, 也就是你的存储处理类:    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> django.core.files.storage <span class="keyword">import</span> FileSystemStorage</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ImageStorage</span><span class="params">(FileSystemStorage)</span>:</span></span><br><span class="line">    <span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, location=settings.MEDIA_ROOT, base_url=settings.MEDIA_URL)</span>:</span></span><br><span class="line">        <span class="comment"># 初始化</span></span><br><span class="line">        super(ImageStorage, self).__init__(location, base_url)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 重写 _save方法        </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_save</span><span class="params">(self, name, content)</span>:</span></span><br><span class="line">        <span class="keyword">import</span> os, time, random</span><br><span class="line">        <span class="comment"># 文件扩展名</span></span><br><span class="line">        ext = os.path.splitext(name)[<span class="number">1</span>]</span><br><span class="line">        <span class="comment"># 文件目录</span></span><br><span class="line">        d = os.path.dirname(name)</span><br><span class="line">        <span class="comment"># 定义文件名，年月日时分秒随机数</span></span><br><span class="line">        fn = time.strftime(<span class="string">'%Y%m%d%H%M%S'</span>)</span><br><span class="line">        fn = fn + <span class="string">'_%d'</span> % random.randint(<span class="number">0</span>,<span class="number">100</span>)</span><br><span class="line">        <span class="comment"># 重写合成文件名</span></span><br><span class="line">        name = os.path.join(d, fn + ext)</span><br><span class="line">        <span class="comment"># 调用父类方法</span></span><br><span class="line">        <span class="keyword">return</span> super(ImageStorage, self)._save(name, content)</span><br></pre></td></tr></table></figure>
+<p>(参考了网上的<a href="https://www.jianshu.com/p/235c8047aae2" target="_blank" rel="noopener">代码</a>) 这个是把文件名改为 <code>年月日时分秒_随机数</code> 在 <code>iOS</code> 这个简单的项目是可以用的了…    </p>
+<p>最后 <code>ImageField</code> 的定义为:    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> system.storage <span class="keyword">import</span> ImageStorage</span><br><span class="line"></span><br><span class="line">Avatar = models.ImageField(upload_to = <span class="string">'avatar'</span>, storage = ImageStorage(), default = <span class="string">'avatar/default.jpg'</span>)</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>用 <code>url</code> 直接访问图片文件 </li>
+</ol>
+<p>之前说到一般使用 <code>ImageField</code> 的 <code>url</code> 属性, 进一步, 可以让 <code>Django</code> 进行路由, 这样就可以直接通过 <code>url</code> 来访问图片文件了    </p>
+<p><strong>关键点是设定路由</strong>, 在 <code>urls.py</code> 添加, 像下面这样:    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 引入相应库</span></span><br><span class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</span><br><span class="line"><span class="keyword">from</span> django.conf.urls.static <span class="keyword">import</span> static</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    </span><br><span class="line">] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)</span><br></pre></td></tr></table></figure>
+<p>这样路由就设定好了, 可以测试一下看看:    </p>
+<p><img src="/2019/05/18/Django之超简单的处理图片上传/1.png" alt="">    </p>
+<p><img src="/2019/05/18/Django之超简单的处理图片上传/2.png" alt="">    </p>
+<p>成功!    </p>
+<h2 id="上传图片测试"><a href="#上传图片测试" class="headerlink" title="上传图片测试"></a>上传图片测试</h2><h3 id="用html测试"><a href="#用html测试" class="headerlink" title="用html测试"></a>用html测试</h3><p><code>iOS</code> 关于 <code>multipart/from-data</code> 代码不好写, 就用 <code>html</code> 测试一下:    </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">action</span>=<span class="string">"http://127.0.0.1:8000/account/info/avatar"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/18/Django之超简单的处理图片上传/3.png" alt="">    </p>
+<h3 id="选择图片"><a href="#选择图片" class="headerlink" title="选择图片"></a>选择图片</h3><p><img src="/2019/05/18/Django之超简单的处理图片上传/4.png" alt="">    </p>
+<h3 id="返回消息"><a href="#返回消息" class="headerlink" title="返回消息"></a>返回消息</h3><p><img src="/2019/05/18/Django之超简单的处理图片上传/5.png" alt="">    </p>
+<h3 id="查看图片"><a href="#查看图片" class="headerlink" title="查看图片"></a>查看图片</h3><p><img src="/2019/05/18/Django之超简单的处理图片上传/6.png" alt="">    </p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/18/记-人性的弱点/" rel="next" title="记<人性的弱点>">
+                <i class="fa fa-chevron-left"></i> 记<人性的弱点>
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Pachirisu</p>
+              <div class="site-description motion-element" itemprop="description">酷毙了</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ImageField"><span class="nav-number">2.</span> <span class="nav-text">ImageField</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他细节"><span class="nav-number">3.</span> <span class="nav-text">其他细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传图片测试"><span class="nav-number">4.</span> <span class="nav-text">上传图片测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用html测试"><span class="nav-number">4.1.</span> <span class="nav-text">用html测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择图片"><span class="nav-number">4.2.</span> <span class="nav-text">选择图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回消息"><span class="nav-number">4.3.</span> <span class="nav-text">返回消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看图片"><span class="nav-number">4.4.</span> <span class="nav-text">查看图片</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pachirisu</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'rlvHE7l1eCcosW5vjObYGdqU-gzGzoHsz',
+    appKey: '49kbOjGS6zitkVzPtthMGDzT',
+    placeholder: 'wait for u',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'mTspvHH250lr3mxXJbFUvUd5-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'mTspvHH250lr3mxXJbFUvUd5-gzGzoHsz',
+                'X-LC-Key': 'aWTxxslYXQH5WxxwqOhBoXBs',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
