@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="小被窝">
 <meta property="og:description" content="随缘更新, 随时停更">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-25T03:50:48.330Z">
+<meta property="og:updated_time" content="2019-05-28T10:57:56.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用好Django的小技巧">
 <meta name="twitter:description" content="随缘更新, 随时停更">
@@ -370,7 +370,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-25 11:50:48" itemprop="dateModified" datetime="2019-05-25T11:50:48+08:00">2019-05-25</time>
+                <time title="Modified: 2019-05-28 18:57:56" itemprop="dateModified" datetime="2019-05-28T18:57:56+08:00">2019-05-28</time>
               
             
           </span>
@@ -444,6 +444,9 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> QueryDict</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转为字典</span></span><br><span class="line">put = QueryDict(request.body)</span><br><span class="line">value = put.get(<span class="string">'key'</span>)</span><br></pre></td></tr></table></figure>
 <p>顺便回忆一下, 取 <code>POST</code> 方法参数的方法:    </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">value = request.POST[<span class="string">'key'</span>]</span><br></pre></td></tr></table></figure>
+<h1 id="3-删除-QuerySet"><a href="#3-删除-QuerySet" class="headerlink" title="3. 删除 QuerySet"></a>3. 删除 QuerySet</h1><p>一次查询可能包含很多 <code>model</code>, 可以直接调用以下方法全部删除</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Post.objects.all().delete()</span><br><span class="line">Post.objects.filter(pub_date__gt=datetime.now()).delete()</span><br></pre></td></tr></table></figure>
+<p><a href="https://code.ziqiangxuetang.com/django/django-queryset-api.html" target="_blank" rel="noopener">api</a><br><a href="https://docs.djangoproject.com/en/1.10/topics/db/examples/many_to_one/#many-to-one-relationships" target="_blank" rel="noopener">many to one</a></p>
 
       
     </div>
@@ -626,7 +629,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-完全彻底重置数据库-删库-5-12"><span class="nav-number">1.</span> <span class="nav-text">1. 完全彻底重置数据库(删库) - 5/12</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-删除所有的migrations"><span class="nav-number">1.1.</span> <span class="nav-text">1. 删除所有的migrations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-删除db-sqlite3文件"><span class="nav-number">1.2.</span> <span class="nav-text">2. 删除db.sqlite3文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-重新生成migrations"><span class="nav-number">1.3.</span> <span class="nav-text">3. 重新生成migrations</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-对-PUT-DELETE-方法的处理-5-25"><span class="nav-number">2.</span> <span class="nav-text">2. 对 PUT DELETE 方法的处理 - 5/25</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-完全彻底重置数据库-删库-5-12"><span class="nav-number">1.</span> <span class="nav-text">1. 完全彻底重置数据库(删库) - 5/12</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-删除所有的migrations"><span class="nav-number">1.1.</span> <span class="nav-text">1. 删除所有的migrations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-删除db-sqlite3文件"><span class="nav-number">1.2.</span> <span class="nav-text">2. 删除db.sqlite3文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-重新生成migrations"><span class="nav-number">1.3.</span> <span class="nav-text">3. 重新生成migrations</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-对-PUT-DELETE-方法的处理-5-25"><span class="nav-number">2.</span> <span class="nav-text">2. 对 PUT DELETE 方法的处理 - 5/25</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-删除-QuerySet"><span class="nav-number">3.</span> <span class="nav-text">3. 删除 QuerySet</span></a></li></ol></div>
             
 
           </div>
