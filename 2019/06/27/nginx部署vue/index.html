@@ -96,22 +96,17 @@
 
 
 
-  <meta name="description" content="iOS的图片加载框架">
+  <meta name="description" content="用nginx部署vue生成的静态文件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SDWebImage">
-<meta property="og:url" content="https://alicizations.github.io/2019/05/26/SDWebImage/index.html">
+<meta property="og:title" content="nginx部署vue">
+<meta property="og:url" content="https://alicizations.github.io/2019/06/27/nginx部署vue/index.html">
 <meta property="og:site_name" content="小被窝">
-<meta property="og:description" content="iOS的图片加载框架">
+<meta property="og:description" content="用nginx部署vue生成的静态文件">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://alicizations.github.io/2019/05/26/SDWebImage/1.png">
-<meta property="og:image" content="https://alicizations.github.io/2019/05/26/SDWebImage/2.png">
-<meta property="og:image" content="https://alicizations.github.io/2019/05/26/SDWebImage/3.png">
-<meta property="og:image" content="https://alicizations.github.io/2019/05/26/SDWebImage/4.png">
-<meta property="og:updated_time" content="2019-05-26T09:24:16.297Z">
+<meta property="og:updated_time" content="2019-06-27T13:16:57.004Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SDWebImage">
-<meta name="twitter:description" content="iOS的图片加载框架">
-<meta name="twitter:image" content="https://alicizations.github.io/2019/05/26/SDWebImage/1.png">
+<meta name="twitter:title" content="nginx部署vue">
+<meta name="twitter:description" content="用nginx部署vue生成的静态文件">
 
 
 
@@ -119,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="https://alicizations.github.io/2019/05/26/SDWebImage/"/>
+  <link rel="canonical" href="https://alicizations.github.io/2019/06/27/nginx部署vue/"/>
 
 
 
@@ -129,7 +124,7 @@
   };
 </script>
 
-  <title>SDWebImage | 小被窝</title>
+  <title>nginx部署vue | 小被窝</title>
   
 
 
@@ -315,7 +310,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2019/05/26/SDWebImage/"/>
+    <link itemprop="mainEntityOfPage" href="https://alicizations.github.io/2019/06/27/nginx部署vue/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pachirisu"/>
@@ -332,7 +327,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SDWebImage
+          <h1 class="post-title" itemprop="name headline">nginx部署vue
 
               
             
@@ -358,7 +353,7 @@
                 
               
 
-              <time title="Created: 2019-05-26 15:47:05 / Modified: 17:24:16" itemprop="dateCreated datePublished" datetime="2019-05-26T15:47:05+08:00">2019-05-26</time>
+              <time title="Created: 2019-06-27 20:27:34 / Modified: 21:16:57" itemprop="dateCreated datePublished" datetime="2019-06-27T20:27:34+08:00">2019-06-27</time>
             
 
             
@@ -380,7 +375,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ios/" itemprop="url" rel="index"><span itemprop="name">ios</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/学习/" itemprop="url" rel="index"><span itemprop="name">学习</span></a></span>
 
                 
                 
@@ -399,8 +394,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/2019/05/26/SDWebImage/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/26/SDWebImage/" itemprop="commentCount"></span>
+                <a href="/2019/06/27/nginx部署vue/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/27/nginx部署vue/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -408,7 +403,7 @@
 
           
           
-            <span id="/2019/05/26/SDWebImage/" class="leancloud_visitors" data-flag-title="SDWebImage">
+            <span id="/2019/06/27/nginx部署vue/" class="leancloud_visitors" data-flag-title="nginx部署vue">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -439,43 +434,22 @@
       
 
       
-        <center>iOS的图片加载框架</center>
+        <center>用nginx部署vue生成的静态文件</center>
 
 <a id="more"></a>     
-<h1 id="SDWebImage"><a href="#SDWebImage" class="headerlink" title="SDWebImage"></a>SDWebImage</h1><p>做应用难免要遇到图片存储的问题, 在 <code>Android</code> 有 <code>Glide</code> 这样的图片加载框架, 设置好图片的 <code>URL</code>, 它帮助你异步非阻塞式地从网络加载图片; 还可以进行缓存, 即下一次用相同的 <code>URL</code> 加载图片时, 如果本地已经有缓存了, 那么直接加载本地的图片, 避免了进行耗时的网络访问请求.    </p>
-<p><code>iOS</code> 也有类似的框架, 就是 <code>SDWebImage</code>, 其设置图片的流程大致如下:    </p>
-<p><img src="/2019/05/26/SDWebImage/1.png" alt="">    </p>
-<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ol>
-<li>提供了一个 <code>UIImageView</code> 的 <code>category</code> 用来加载网络图片并且对网络图片的缓存进行管理</li>
-<li>采用异步方式来下载网络图片</li>
-<li>采用异步方式，使用 <code>memory+disk</code> 来缓存网络图片，自动管理缓存。</li>
-<li>支持 <code>GIF</code> 动画</li>
-<li>支持 <code>WebP</code> 格式</li>
-<li>同一个 <code>URL</code> 的网络图片不会被重复下载</li>
-<li>失效的 <code>URL</code> 不会被无限重试</li>
-<li>耗时操作都在子线程，确保不会阻塞主线程</li>
-<li>使用 <code>GCD</code> 和 <code>ARC</code></li>
-<li>支持 <code>Arm64</code></li>
-</ol>
-<h2 id="通过CocoaPods安装"><a href="#通过CocoaPods安装" class="headerlink" title="通过CocoaPods安装"></a>通过CocoaPods安装</h2><ol>
-<li><p>打开你的 <code>Podfile</code>, 输入 <code>pod &#39;SDWebImage&#39;</code>    </p>
-</li>
-<li><p>在终端执行 <code>pod install</code></p>
-</li>
-</ol>
-<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="引入头文件"><a href="#引入头文件" class="headerlink" title="引入头文件"></a>引入头文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;SDWebImage/UIImageView+WebCache.h&gt;</span><br><span class="line">#import &lt;SDWebImageManager.h&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="通过url加载图片"><a href="#通过url加载图片" class="headerlink" title="通过url加载图片"></a>通过url加载图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[imageView sd_setImageWithURL:[NSURL URLWithString:@&quot;&quot;]</span><br><span class="line">             placeholderImage:[UIImage imageNamed:@&quot;placeholder.png&quot;]];</span><br></pre></td></tr></table></figure>
-<p>测试一下加载本地服务器的静态图片:     </p>
-<p><img src="/2019/05/26/SDWebImage/2.png" alt="">    </p>
-<p><img src="/2019/05/26/SDWebImage/3.png" alt="">    </p>
-<h3 id="成功加载的回调"><a href="#成功加载的回调" class="headerlink" title="成功加载的回调"></a>成功加载的回调</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[cell.imageView sd_setImageWithURL:[NSURL URLWithString:@&quot;http://www.domain.com/path/to/image.jpg&quot;] </span><br><span class="line">    placeholderImage:[UIImage imageNamed:@&quot;placeholder.png&quot;] </span><br><span class="line">    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) &#123;</span><br><span class="line">    // 进行成功后的操作</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<h3 id="获取图片的缓存大小"><a href="#获取图片的缓存大小" class="headerlink" title="获取图片的缓存大小"></a>获取图片的缓存大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[SDImageCache sharedImageCache] totalDiskSize];</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/05/26/SDWebImage/4.png" alt="">    </p>
-<p>测试代码:    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SDImageCache * cache = [SDImageCache sharedImageCache];</span><br><span class="line">NSUInteger tmpSize = [cache totalDiskSize];</span><br><span class="line">[self.imgSize setText:[[NSString alloc]initWithFormat:@&quot;%lu&quot;, tmpSize] ];</span><br></pre></td></tr></table></figure>
-<h3 id="清除内存-磁盘缓存"><a href="#清除内存-磁盘缓存" class="headerlink" title="清除内存/磁盘缓存"></a>清除内存/磁盘缓存</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 清除内存缓存</span><br><span class="line">[[SDImageCache sharedImageCache] clearMemory];</span><br><span class="line">// 清除磁盘缓存</span><br><span class="line">[[SDImageCache sharedImageCache] clearDiskOnCompletion];</span><br></pre></td></tr></table></figure>
-<h2 id="仅供参考"><a href="#仅供参考" class="headerlink" title="仅供参考"></a>仅供参考</h2><p>1和2有些过时了, 上面的函数是自己看文档找到的    </p>
-<p><a href="https://www.jianshu.com/p/be9a0a088feb" target="_blank" rel="noopener">SDWebImage 解读</a><br><a href="https://www.jianshu.com/p/f7ee80998d4b" target="_blank" rel="noopener">SDWebImage的使用</a><br><a href="https://sdwebimage.github.io/Classes/SDImageCache.html#/c:objc(cs" target="_blank" rel="noopener">官方文档</a>SDImageCache(im)totalDiskSize)    </p>
+<p>项目的后端在之前已经部署了, 现在要部署前端了</p>
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装依赖</span></span><br><span class="line">yarn install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成静态文件</span></span><br><span class="line">yarn run build</span><br></pre></td></tr></table></figure>
+<p>如果安装依赖失败请先升级你的node版本;</p>
+<p>生成成功后, 文件会放置在<code>./dist</code>文件夹里</p>
+<h3 id="上传文件到服务器"><a href="#上传文件到服务器" class="headerlink" title="上传文件到服务器"></a>上传文件到服务器</h3><p>可以用<code>scp</code>之类的命令</p>
+<p>这里用的是</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r dist root@ip:path</span><br></pre></td></tr></table></figure>
+<h3 id="向nginx配置文件添加内容"><a href="#向nginx配置文件添加内容" class="headerlink" title="向nginx配置文件添加内容"></a>向nginx配置文件添加内容</h3><p>添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name localhost;</span><br><span class="line"></span><br><span class="line">    error_page 405 =200 $uri;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root /root/frontEnd/dist;</span><br><span class="line">        try_files $uri $uri/ @router;</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location @router &#123;</span><br><span class="line">        rewrite ^.*$ /index.html last;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="重启nginx"><a href="#重启nginx" class="headerlink" title="重启nginx"></a>重启nginx</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart nginx.service</span><br></pre></td></tr></table></figure>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>访问80端口就可以看到了</p>
+<h3 id="坑点"><a href="#坑点" class="headerlink" title="坑点"></a>坑点</h3><p>nginx默认不允许用post方法来请求静态文件, 所以要加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error_page 405 =200 $uri;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -506,8 +480,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/20/docker入门/" rel="next" title="docker入门">
-                <i class="fa fa-chevron-left"></i> docker入门
+              <a href="/2019/06/26/系分项目个人报告/" rel="next" title="系分项目个人报告">
+                <i class="fa fa-chevron-left"></i> 系分项目个人报告
               </a>
             
           </div>
@@ -515,10 +489,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/13/用Travis进行持续集成/" rel="prev" title="用Travis进行自动部署">
-                用Travis进行自动部署 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -658,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SDWebImage"><span class="nav-number">1.</span> <span class="nav-text">SDWebImage</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过CocoaPods安装"><span class="nav-number">1.2.</span> <span class="nav-text">通过CocoaPods安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用"><span class="nav-number">1.3.</span> <span class="nav-text">基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入头文件"><span class="nav-number">1.3.1.</span> <span class="nav-text">引入头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过url加载图片"><span class="nav-number">1.3.2.</span> <span class="nav-text">通过url加载图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成功加载的回调"><span class="nav-number">1.3.3.</span> <span class="nav-text">成功加载的回调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取图片的缓存大小"><span class="nav-number">1.3.4.</span> <span class="nav-text">获取图片的缓存大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除内存-磁盘缓存"><span class="nav-number">1.3.5.</span> <span class="nav-text">清除内存/磁盘缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#仅供参考"><span class="nav-number">1.4.</span> <span class="nav-text">仅供参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#生成静态文件"><span class="nav-number">1.</span> <span class="nav-text">生成静态文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传文件到服务器"><span class="nav-number">2.</span> <span class="nav-text">上传文件到服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向nginx配置文件添加内容"><span class="nav-number">3.</span> <span class="nav-text">向nginx配置文件添加内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重启nginx"><span class="nav-number">4.</span> <span class="nav-text">重启nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">5.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坑点"><span class="nav-number">6.</span> <span class="nav-text">坑点</span></a></li></ol></div>
             
 
           </div>
